@@ -1,0 +1,192 @@
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<app-menu></app-menu>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<app-cabecera></app-cabecera>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Empresas</h1>
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+						<div class="card-body">
+							<form [formGroup]="frmEmpresa" class="user">
+								<div class="form-group row">
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" formControlName="razonSocial" id="" placeholder="Razón Social">
+										<div *ngIf="submitted && f.razonSocial.errors" class="invalid-feedback">
+											<div *ngIf="f.razonSocial.errors.required">Debe la razón social</div>
+										</div>
+									</div>
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocialCorto.errors }" formControlName="razonSocialCorto" id="" placeholder="Razón Social Corto">
+										<div *ngIf="submitted && f.razonSocialCorto.errors" class="invalid-feedback">
+											<div *ngIf="f.razonSocialCorto.errors.required">Debe ingresar la decripcion corta de la razón social</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-12">
+										<label for="">Imagen</label>
+										<div class="input-group mb-12">
+											<div class="input-group-prepend">
+												<span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
+											</div>
+											<div class="custom-file">
+												<input #imagen type="file" [ngClass]="{ 'is-invalid': submitted && f.imagen.errors }" class="custom-file-input" id="" aria-describedby="" accept='image/*'(change)="onFileChange(imagen.files)">
+												<input type="hidden" formControlName="imagen" />
+												<label class="custom-file-label" for="inputGroupFile01">{{nombreArchivo}}</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<select  *ngIf="accion == 'e'" disabled class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
+											<option value="" selected>Tipo de Documento</option>
+											<option *ngFor="let item of lstTipoDocumento; let i = index" [value]="item.idTipoDocu">
+												{{item.nomCorto}}
+											</option>
+										</select>
+										<select  *ngIf="accion == 'n'" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
+											<option value="" selected>Tipo de Documento</option>
+											<option *ngFor="let item of lstTipoDocumento; let i = index" [value]="item.idTipoDocu">
+												{{item.nomCorto}}
+											</option>
+										</select>
+										<div *ngIf="submitted && f.idTipoDocu.errors" class="invalid-feedback">
+											<div *ngIf="f.idTipoDocu.errors.required">Debe seleccionar el tipo de documento</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<input  [readOnly]="accion == 'e'" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" formControlName="nroDocu"  id="" placeholder="Nro. de Documento">
+										<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
+											<div *ngIf="f.nroDocu.errors.required">Debe ingresar el nro. de documento</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-6">
+										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" formControlName="telefono"  id="" placeholder="Telefono">
+										<div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+											<div *ngIf="f.telefono.errors.required">Debe ingresar el teléfono</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contacto.errors }" formControlName="contacto"  id="" placeholder="Contacto">
+										<div *ngIf="submitted && f.contacto.errors" class="invalid-feedback">
+											<div *ngIf="f.contacto.errors.required">Debe ingresar el contacto</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-6">
+										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" formControlName="correo"  id="" placeholder="Correo">
+										<div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+											<div *ngIf="f.correo.errors.required">Debe ingresar el correo electrónico</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<select class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }" formControlName="estado">
+											<option value="">Estado</option>
+											<option value="1">Activo</option>
+											<option value="0">Inactivo</option>
+										</select>
+										<div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+											<div *ngIf="f.estado.errors.required">Debe seleccionar el estado</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="col-lg-12 text-right">
+							<button (click)="abrirAgregar()" class="btn btn-primary btn-icon-split float-right">
+								<span class="icon text-white-50">
+									<i class="fa fa-plus"></i>
+								</span>
+								<span class="text">Agregar Local</span>
+							</button>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>Nombre</th>
+											<th>Dirección</th>
+											<th>Longitud</th>
+											<th>Latitud</th>
+											<th>Accción</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngIf="lstLocales.length == 0">
+											<td colspan="5" class="text-center">No hay locales agregados</td>
+										</tr>
+										<ng-container *ngFor="let item of lstLocales; let i = index">
+											<tr *ngIf="item.accion != 'E'">
+												<td>{{item.nombre}}</td>
+												<td>{{item.direccion}}</td>
+												<td>{{item.longitud}}</td>
+												<td>{{item.latitud}}</td>
+												<td>
+													<button (click)="editar(item.id, i)" class="btn btn-success btn-circle btn-sm">
+	                          							<i class="fa fa-pencil"></i>
+	                        						</button>
+	                        						<button (click)="eliminar(item.id, i)" class="btn btn-danger btn-circle btn-sm mt-left ml-2">
+	                          							<i class="fa fa-trash"></i>
+	                        						</button>
+	                        					</td>
+											</tr>
+										</ng-container>  
+									</tbody>
+								</table>
+							</div>  
+							<button (click)="registrarEmpresa()" class="btn btn-success btn-icon-split float-right">
+								<span class="icon text-white-50">
+									<i class="fa fa-check"></i>
+								</span>
+								<span  *ngIf="accion != 'e'" class="text">Registrar Empresa</span>
+								<span  *ngIf="accion == 'e'" class="text">Guardar Cambios</span>
+							</button>
+						</div>  
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<app-footer></app-footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fa fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<app-msesion></app-msesion>

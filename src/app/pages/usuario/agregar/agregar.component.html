@@ -1,0 +1,150 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">Agregar Usuario</h4>
+</div>
+<div class="modal-body">
+	<div class="card">
+		<div class="card-body">
+			<form [formGroup]="frmUsuario" class="user">
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" formControlName="username" placeholder="Username" (focusout)="validarUsuario()" />
+
+						<div *ngIf="submitted && f.idTipoDocu.errors" class="invalid-feedback">
+                      		<div *ngIf="f.idTipoDocu.errors.required">Debe ingresar el username</div>
+                		</div>
+					</div>
+					<!--<div class="input-group input-group-sm col-sm-4">
+						<button type="button" class="btn btn-primary btn-sm btn-block" (click)="validarUsuario()" [disabled]="loading" >Validar</button>
+					</div>-->
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" placeholder="Contraseña" />
+
+						<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      		<div *ngIf="f.password.errors.required">Debe ingresar su contraseña</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-12 input-group-sm">
+						<select (change)="cambioTipoUsuario($event)" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoUsuario.errors }" formControlName="idTipoUsuario">
+							<option value="" selected>Tipo de Usuario</option>
+							<option *ngFor="let item of lstTipoUsuario; let i = index" value="{{item.idTipoUsuario + '-' + item.nomLargo}}">
+								{{item.nomLargo}}
+							</option>
+						</select>
+
+						<div *ngIf="submitted && f.idTipoUsuario.errors" class="invalid-feedback">
+                      		<div *ngIf="f.idTipoUsuario.errors.required">Debe seleccionar el tipo de usuario</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-12 input-group-sm">
+						<select (change)="cambiarTipo($event)" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
+							<option value="" selected>Tipo de Documento</option>
+							<option *ngFor="let item of lstTipoDocumento; let i = index" value="{{item.idTipoDocu + '-' + item.nomCorto}}">
+								{{item.nomCorto}}
+							</option>
+						</select>
+
+						<div *ngIf="submitted && f.idTipoDocu.errors" class="invalid-feedback">
+                      		<div *ngIf="f.idTipoDocu.errors.required">Debe seleccionar el tipo de documento</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" (focusout)="validarPersona()" formControlName="nroDocu" placeholder="Nro. Documento" />
+
+						<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
+                      		<div *ngIf="f.nroDocu.errors.required">Debe ingresar el tipo de documento</div>
+                		</div>
+					</div>
+					<!--<div class="input-group input-group-sm col-sm-4">
+						<button type="button" class="btn btn-primary btn-sm btn-block" (click)="validarPersona()" [disabled]="loading" >Validar</button>
+					</div>-->
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" formControlName="razonSocial" placeholder="Razón Social" />
+
+						<div *ngIf="submitted && f.razonSocial.errors" class="invalid-feedback">
+                      		<div *ngIf="f.razonSocial.errors.required">Debe validar el tipo de usuario</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row" *ngIf="isVecino">
+					<div class="col-sm-12 input-group-sm">
+						<select (change)="cambiarTipoPadre($event)" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocuPadre.errors }" formControlName="idTipoDocuPadre">
+							<option value="" selected>Tipo de Documento Contribuyente</option>
+							<option *ngFor="let item of lstTipoDocumento; let i = index" value="{{item.idTipoDocu}}">
+								{{item.nomCorto}}
+							</option>
+						</select>
+
+						<div *ngIf="submitted && f.idTipoDocuPadre.errors" class="invalid-feedback">
+                      		<div *ngIf="f.idTipoDocuPadre.errors.required">Debe seleccionar el tipo de documento</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row" *ngIf="isVecino">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocuPadre.errors }" (focusout)="validarContribuyente()" formControlName="nroDocuPadre" placeholder="Nro. Documento Contribuyente" />
+
+						<div *ngIf="submitted && f.nroDocuPadre.errors" class="invalid-feedback">
+                      		<div *ngIf="f.nroDocuPadre.errors.required">Debe ingresar el nro. de documento</div>
+                		</div>
+					</div>
+					<!--<div class="input-group input-group-sm col-sm-4">
+						<button type="button" class="btn btn-primary btn-sm btn-block" (click)="validarContribuyente()" [disabled]="loading" >Validar</button>
+					</div>-->
+				</div>
+				<div class="form-group row" *ngIf="isVecino">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contribuyente.errors }" formControlName="contribuyente" placeholder="Contribuyente" />
+
+						<div *ngIf="submitted && f.contribuyente.errors" class="invalid-feedback">
+                      		<div *ngIf="f.contribuyente.errors.required">Debe validar el contribuyente</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-12">Roles</label>
+					<div class="col-sm-12">
+						<div formArrayName="lstRol" class="form-check" *ngFor="let item of lstRol; let i = index" >
+							<input class="form-check-input" [formControlName]="i" type="checkbox">
+							<label class="form-check-label">{{item.nombre}}</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" formControlName="correo" placeholder="Correo" />
+
+						<div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+                      		<div *ngIf="f.correo.errors.required">Debe ingresar el correo electrónico</div>
+                      		<div *ngIf="f.correo.errors.email">Debe ingresar un correo electrónico válido</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }" formControlName="descripcion" placeholder="Descripcion" />
+
+						<div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+                      		<div *ngIf="f.descripcion.errors.required">Debe ingresar la descripcion</div>
+                		</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cancelar</button>
+	<button type="button" class="btn btn-primary" (click)="agregarUsuario()" [disabled]="loading" >Aceptar</button>
+</div>

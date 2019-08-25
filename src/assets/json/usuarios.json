@@ -1,0 +1,20 @@
+[
+   {
+       "idTipoDocu": 1,
+    "descTipoDocu": "DNI",
+       "nroDocu": 12345679,
+       "username": "user12",
+       "idTipoUsuario": 3,
+       "descTipoUsu": "Empresa",
+       "nombreUsu": "jonathan2 malpica2 nunez2"
+   },
+   {
+       "idTipoDocu": 1, 
+    "descTipoDocu": "DNI",  
+       "nroDocu": 12345678,
+       "username": "user1",
+       "idTipoUsuario": 1,
+       "descTipoUsu": "Contribuyente",
+       "nombreUsu": "jonathan malpica nunez"
+   }
+]

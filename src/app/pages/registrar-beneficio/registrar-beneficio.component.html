@@ -1,0 +1,270 @@
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-menu></app-menu>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <app-cabecera></app-cabecera>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Beneficios</h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <form class="user" [formGroup]="beneficioForm" (ngSubmit)="onSubmit()">
+              <div class="card-body">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Empresa</label>-->
+                    <select *ngIf="!flagEmpresa" class="custom-select" formControlName="lstEmpresas" [ngClass]="{ 'is-invalid': submitted && f.lstEmpresas.errors }">
+                      <option value="" selected>Empresa</option>
+                      <option *ngFor="let item of lstEmpresas; let i = index" [value]="item.idTipoDocu + '-' + item.nroDocu">
+                        {{item.razonSocial}}
+                      </option>
+                    </select>
+                    <select *ngIf="flagEmpresa" class="custom-select" formControlName="lstEmpresas" [ngClass]="{ 'is-invalid': submitted && f.lstEmpresas.errors }">
+                      <option value="" selected>Empresa</option>
+                      <option [value]="user.idTipoDocu + '-' + user.nroDocu">
+                        {{user.nombreUsu}}
+                      </option>
+                    </select>
+                    <div *ngIf="submitted && f.lstEmpresas.errors" class="invalid-feedback">
+                      <div *ngIf="f.lstEmpresas.errors.required">Debe seleccionar una empresa</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="descripcion1" id="" placeholder="Descripción 1" [ngClass]="{ 'is-invalid': submitted && f.descripcion1.errors }">
+                    <div *ngIf="submitted && f.descripcion1.errors" class="invalid-feedback">
+                      <div *ngIf="f.descripcion1.errors.required">Debe ingresar el campo Descripcion 1</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Categoría</label>-->
+                    <select class="custom-select" formControlName="lstCategorias" [ngClass]="{ 'is-invalid': submitted && f.lstCategorias.errors }">
+                      <option value="" selected>Categoría</option>
+                      <option *ngFor="let item of lstCategorias; let i = index" [value]="item.idCategoria">
+                        {{item.descripcion}}
+                      </option>
+                    </select>
+                    <div *ngIf="submitted && f.lstCategorias.errors" class="invalid-feedback">
+                      <div *ngIf="f.lstCategorias.errors.required">Debe seleccionar una categoría</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+      							<!--<label for="">Descripción 2</label>-->
+                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion2.errors }" formControlName="descripcion2" id="" placeholder="Descripción 2">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Fecha Inicio</label>-->
+                    <div class="input-group">
+                      <input class="form-control" placeholder="Fecha Inicio"
+                        name="fecInicio" [ngClass]="{ 'is-invalid': submitted && f.fecInicio.errors }" formControlName="fecInicio" [(ngModel)]="fecInicio" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                    </div>
+                    <div *ngIf="submitted && f.fecInicio.errors" class="invalid-feedback">
+                      <div *ngIf="f.fecInicio.errors.required">Debe ingresar la fecha de Inicio</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+      							<!--<label for="">Descripción 3</label>-->
+                    <input type="text" class="form-control" formControlName="descripcion3" id="" placeholder="Descripción 3" [ngClass]="{ 'is-invalid': submitted && f.descripcion3.errors }">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Fecha Fin</label>-->
+                    <div class="input-group">
+                      <input class="form-control" placeholder="Fecha Fin"
+                        name="fecFin" [(ngModel)]="fecFin"  formControlName="fecFin" ngbDatepicker #df="ngbDatepicker"
+                        [ngClass]="{ 'is-invalid': submitted && f.fecFin.errors }">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="df.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                      </div>
+                    </div>
+                    <div *ngIf="submitted && f.fecFin.errors" class="invalid-feedback">
+                      <div *ngIf="f.fecFin.errors.required">Debe ingresar la fecha de Fin</div>
+                    </div>
+                    <br />
+                    <!--<label for="">Tipo</label>-->
+                    <select class="custom-select" formControlName="lstTipoBeneficios" [ngClass]="{ 'is-invalid': submitted && f.lstTipoBeneficios.errors }">
+                      <option value="" selected>Tipo</option>
+                      <option *ngFor="let item of lstTipoBeneficios; let i = index" [value]="item.idTipoBeneficio">
+                        {{item.descripcion}}
+                      </option>
+                    </select>
+                    <div *ngIf="submitted && f.lstTipoBeneficios.errors" class="invalid-feedback">
+                      <div *ngIf="f.lstTipoBeneficios.errors.required">Debe seleccionar un Tipo</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+      							<!--<label for="">Descripción 4</label>-->
+                    <textarea class="form-control" placeholder="Descripción 4" formControlName="descripcion4" id="" rows="5" [ngClass]="{ 'is-invalid': submitted && f.descripcion4.errors }"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+      							<!--<label for="">Imagen</label>-->
+                    <div class="input-group mb-12">
+										  <div class="input-group-prepend">
+										    <span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
+										  </div>
+										  <div class="custom-file">
+										    <input  #imagen type="file" accept='image/*'(change)="onFileChange(imagen.files)" formControlName="imagen" [ngClass]="{ 'is-invalid': submitted && f.imagenHddn.errors }" class="custom-file-input" id="" aria-describedby="">
+                        <input type="hidden" value="{{nombreArchivoHddn}}" formControlName="imagenHddn"/>
+										    <label class="custom-file-label" for="inputGroupFile01">{{nombreArchivo}}</label>
+										  </div>
+										</div>
+                  </div>
+                  <!--<div class="col-sm-6">
+                  </div>-->
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Observación 1</label>-->
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion1.errors }" formControlName="observacion1" class="form-control" id="" placeholder="Observación 1">
+
+                    <div *ngIf="submitted && f.observacion1.errors" class="invalid-feedback">
+                      <div *ngIf="f.observacion1.errors.required">Debe ingresar el campo Observacion 1</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+      							<!--<label for="">Observación 4</label>-->
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion4.errors }" formControlName="observacion4" class="form-control" id="" placeholder="Observación 4">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Observación 2</label>-->
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion2.errors }" formControlName="observacion2" class="form-control" id="" placeholder="Observación 2">
+                  </div>
+                  <div class="col-sm-6">
+      							<!--<label for="">Observación 5</label>-->
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion5.errors }" formControlName="observacion5" class="form-control" id="" placeholder="Observación 5">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+      							<!--<label for="">Observación 3</label>-->
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion3.errors }" formControlName="observacion3" class="form-control" id="" placeholder="Observación 3">
+                  </div>
+                  <div class="col-sm-6">
+      							<!--<label for="">Observación 6</label>-->
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion6.errors }" formControlName="observacion6" class="form-control" id="" placeholder="Observación 6">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <!--<label for="">Términos y condiciones</label>-->
+                    <textarea class="form-control" placeholder="Términos y condiciones" formControlName="terminos" id="" rows="5" [ngClass]="{ 'is-invalid': submitted && f.terminos.errors }"></textarea>
+
+                    <div *ngIf="submitted && f.terminos.errors" class="invalid-feedback">
+                      <div *ngIf="f.terminos.errors.required">Debe ingresar el campo Términos</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body" *ngIf="!flagEmpresa">
+              	<div class="card-header py-3">
+  	              <h6 class="m-0 font-weight-bold text-primary">Grupo</h6>
+  	            </div>
+  	            <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  	                <thead>
+                      <tr>	                    
+                        <th>Edad</th>
+  	                    <th>Segmento</th>
+                        <th *ngFor="let itemM of lstNivelMorosidad; ">
+                          {{itemM.descripcion}}
+                        </th>
+  	                  </tr>
+  	                </thead>
+                    <tbody>
+                      <tr *ngFor="let item of lstSegmentos">
+                        <td>{{ item.minRango + '-' + item.maxRango}}</td>
+                        <td>{{ item.descripcion }}</td>
+                        <td *ngFor="let itemM of lstNivelMorosidad; ">
+                            <input (change)="seleccionarMorosidad($event)" name="morosidad" value="{{item.idSegmento}}-{{itemM.idNivelMorosidad}}" type="checkbox" id="" />
+                        </td>
+                      </tr>
+                    </tbody>
+  	              </table>
+  	            </div>  
+  	          </div> 
+              <div class="card-body" style="padding-bottom: 20px;" *ngIf="!flagEmpresa">
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                    <label for="">Estado</label>
+                    <div style="margin-left: 20px" class="form-check" *ngFor="let item of lstEstadoBeneficio; ">
+                      <input [ngClass]="{ 'is-invalid': submitted && f.estado.errors }" class="form-check-input" type="radio" formControlName="estado" id="{{'estado' + item.idEstadoBeneficio}}" [value]="item.idEstadoBeneficio">
+                      <label class="form-check-label" for="{{'estado' + item.idEstadoBeneficio}}">{{item.descripcion}}</label>
+                    </div>
+                    <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                      <div *ngIf="f.estado.errors.required">Debe seleccionar el estado del beneficio</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-10">
+                    <!--<label for="">Términos y condiciones</label>-->
+                    <textarea class="form-control" placeholder="Detalle" formControlName="detalle" id="" rows="6" [ngClass]="{ 'is-invalid': submitted && f.detalle.errors }"></textarea>
+                  </div>
+                </div> 
+              </div>
+              <div class="card-body" style="padding-bottom: 80px;">
+                <button [disabled]="loading" class="btn btn-success btn-icon-split float-right">
+                  <span class="icon text-white-50">
+                    <i class="fa fa-check"></i>
+                  </span>
+                  <span class="text">Registrar Beneficio</span>
+                </button>
+              </div> 
+                <br />
+                <div *ngIf="error" class="alert alert-danger alert-dismissible fade show">
+                  {{error}}
+                </div>
+            </form> 
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+
+  <!-- MODAL -->
+ 
+  <!-- MODAL -->
+
+  <!-- Logout Modal-->
+  <app-msesion></app-msesion>

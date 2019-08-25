@@ -1,0 +1,90 @@
+{
+ "lstRol": [
+   {
+     "idRol": 1,
+     "nombre": "ADMIN"
+   },
+   {
+     "idRol": 2,
+     "nombre": "B2B"
+   },
+   {
+     "idRol": 3,
+     "nombre": "CONSUL"
+   }
+ ],
+ "lstTipoDocumento": [
+   {
+     "idTipoDocu": 1,
+     "nomLargo": "DOCUMENTO DE IDENTIDAD NACIONAL",
+     "nomCorto": "DNI"
+   },
+   {
+     "idTipoDocu": 2,
+     "nomLargo": "LIBRETA ELECTORAL",
+     "nomCorto": "L.E"
+   },
+   {
+     "idTipoDocu": 3,
+     "nomLargo": "CARNET DE EXTRANJERIA",
+     "nomCorto": "CARNET EXT."
+   },
+   {
+     "idTipoDocu": 4,
+     "nomLargo": "REG. UNICO DE CONTRIBUYENTES",
+     "nomCorto": "RUC"
+   },
+   {
+     "idTipoDocu": 5,
+     "nomLargo": "PASAPORTE",
+     "nomCorto": "PASAPORTE"
+   },
+   {
+     "idTipoDocu": 6,
+     "nomLargo": "PART. DE NACIMIENTO-IDENTIDAD",
+     "nomCorto": "P. NAC."
+   },
+   {
+     "idTipoDocu": 7,
+     "nomLargo": "OTROS",
+     "nomCorto": "OTROS"
+   }
+ ],
+ "lstTipoUsuario": [
+   {
+     "idTipoUsuario": 1,
+     "nomLargo": "DOCUMENTO DE IDENTIDAD NACIONAL",
+     "nomCorto": "DNI"
+   },
+   {
+     "idTipoUsuario": 2,
+     "nomLargo": "LIBRETA ELECTORAL",
+     "nomCorto": "L.E"
+   },
+   {
+     "idTipoUsuario": 3,
+     "nomLargo": "CARNET DE EXTRANJERIA",
+     "nomCorto": "CARNET EXT."
+   },
+   {
+     "idTipoUsuario": 4,
+     "nomLargo": "REG. UNICO DE CONTRIBUYENTES",
+     "nomCorto": "RUC"
+   },
+   {
+     "idTipoUsuario": 5,
+     "nomLargo": "PASAPORTE",
+     "nomCorto": "PASAPORTE"
+   },
+   {
+     "idTipoUsuario": 6,
+     "nomLargo": "PART. DE NACIMIENTO-IDENTIDAD",
+     "nomCorto": "P. NAC."
+   },
+   {
+     "idTipoUsuario": 7,
+     "nomLargo": "OTROS",
+     "nomCorto": "OTROS"
+   }
+ ]
+}

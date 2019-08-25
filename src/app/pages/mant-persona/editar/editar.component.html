@@ -1,0 +1,148 @@
+<div class="modal-header">
+	<h4 class="modal-title">Editar Persona</h4>
+</div>
+<div class="modal-body">
+	<div class="card">
+		<div class="card-body">
+			<form [formGroup]="frmPersona">
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-6">
+						<select disabled class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
+							<option value="" selected>Tipo Documento</option>
+							<option *ngFor="let item of lstTipoDocumento; let i = index" [value]="item.idTipoDocu">
+								{{item.nomCorto}}
+							</option>
+						</select>
+
+						<div *ngIf="submitted && f.idTipoDocu.errors" class="invalid-feedback">
+                      		<div *ngIf="f.idTipoDocu.errors.required">Debe seleccionar el tipo de documento</div>
+                		</div>
+					</div>
+					<div class="input-group input-group-sm col-sm-6">
+						<input readonly type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" formControlName="nroDocu" placeholder="Nro. Documento" />
+
+						<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
+                      		<div *ngIf="f.nroDocu.errors.required">Debe ingresar el nro. de documento</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-12">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombres.errors }" formControlName="nombres" placeholder="Nombres" />
+
+						<div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
+                      		<div *ngIf="f.nombres.errors.required">Debe ingresar el nombre de la persona</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-6">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apePater.errors }" formControlName="apePater" placeholder="Apellido Paterno" />
+
+						<div *ngIf="submitted && f.apePater.errors" class="invalid-feedback">
+                      		<div *ngIf="f.apePater.errors.required">Debe ingresar el apellido paterno</div>
+                		</div>
+					</div>
+					<div class="input-group input-group-sm col-sm-6">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apeMater.errors }" formControlName="apeMater" placeholder="Apellido Materno" />
+
+						<div *ngIf="submitted && f.apeMater.errors" class="invalid-feedback">
+                      		<div *ngIf="f.apeMater.errors.required">Debe ingresar el apellido materno</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-6">
+	                    <div class="input-group">
+							<input readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fecNacimiento.errors }" formControlName="fecNacimiento" placeholder="Fecha Nacimiento"
+								name="fecNacimiento" [(ngModel)]="fecNacimiento"  ngbDatepicker #d="ngbDatepicker">
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+							</div>
+
+						<div *ngIf="submitted && f.fecNacimiento.errors" class="invalid-feedback">
+                      		<div *ngIf="f.fecNacimiento.errors.required">Debe seleccionar la fecha de nacimiento</div>
+                		</div>
+						</div>
+					</div>
+					<div class="input-group input-group-sm col-sm-6">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
+						</div>
+						<div class="custom-file">
+							<input #imagen (change)="onFileChange(imagen.files)"  type="file" class="custom-file-input" id="" [ngClass]="{ 'is-invalid': submitted && f.imagen.errors }" aria-describedby="" accept='image/*' >
+							<input formControlName="imagen" type="hidden" />
+							<label class="custom-file-label" for="inputGroupFile01">{{nombreArchivo}}</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-6">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }" formControlName="direccion" placeholder="Direccion" />
+
+						<div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
+                      		<div *ngIf="f.direccion.errors.required">Debe ingresar la dirección</div>
+                		</div>
+					</div>
+					<div class="input-group input-group-sm col-sm-6">
+						<select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.estCivil.errors }" formControlName="estCivil">
+							<option value="" selected>Estado Civil</option>
+							<option *ngFor="let item of lstEstadoCivil; let i = index" [value]="item.idEstadoCivil">
+								{{item.descripcion}}
+							</option>
+						</select>
+
+						<div *ngIf="submitted && f.estCivil.errors" class="invalid-feedback">
+                      		<div *ngIf="f.estCivil.errors.required">Debe seleccionar el estado civil</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-6">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correoElect.errors }" formControlName="correoElect" placeholder="Correo" />
+
+						<div *ngIf="submitted && f.correoElect.errors" class="invalid-feedback">
+                      		<div *ngIf="f.correoElect.errors.required">Debe ingresar el correo electrónico</div>
+                      		<div *ngIf="f.correoElect.errors.email">Debe ingresar un correo electrónico válido</div>
+                		</div>
+					</div>
+					<div class="input-group input-group-sm col-sm-6">
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" formControlName="telefono" placeholder="Teléfono" />
+
+						<div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+                      		<div *ngIf="f.telefono.errors.required">Debe ingresar el teléfono</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="input-group input-group-sm col-sm-6">
+						<select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idSexo.errors }" formControlName="idSexo">
+							<option value="" selected>Sexo</option>
+							<option value="M">MASCULINO</option>
+							<option value="F">FEMENINO</option>
+						</select>
+
+						<div *ngIf="submitted && f.idSexo.errors" class="invalid-feedback">
+                      		<div *ngIf="f.idSexo.errors.required">Debe seleccionar el sexo</div>
+                		</div>
+					</div>
+					<div class="input-group input-group-sm col-sm-6">
+						<select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }" formControlName="estado">
+							<option value="" selected>Estado</option>
+							<option value="1">Activo</option>
+							<option value="0">Inactivo</option>
+						</select>
+
+						<div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                      		<div *ngIf="f.estado.errors.required">Debe seleccionar el estado</div>
+                		</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="actualizar()">Guardar</button>
+</div>

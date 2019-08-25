@@ -1,0 +1,62 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">Agregar Local</h4>
+</div>
+<div class="modal-body">
+	<div class="card">
+		<div class="card-body">
+			<form [formGroup]="frmLocal" class="user">
+				<div class="form-group row">
+					<div class="col-sm-6 mb-3 mb-sm-0">
+						<!--<label for="">Nombre</label>-->
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" formControlName="razonSocial" id="" placeholder="Nombre">
+						<div *ngIf="submitted && f.razonSocial.errors" class="invalid-feedback">
+                      		<div *ngIf="f.razonSocial.errors.required">Debe ingresar el nombre</div>
+                		</div>
+					</div>
+					<div class="col-sm-6">
+						<!--<label for="">Longitud</label>-->
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.longitud.errors }" formControlName="longitud" id="" placeholder="Longitud">
+						<div *ngIf="submitted && f.longitud.errors" class="invalid-feedback">
+                      		<div *ngIf="f.longitud.errors.required">Debe ingresar la longitud</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-6 mb-3 mb-sm-0">
+						<!--<label for="">Dirección</label>-->
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }" formControlName="direccion" id="" placeholder="Dirección">
+						<div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
+                      		<div *ngIf="f.direccion.errors.required">Debe ingresar la dirección</div>
+                		</div>
+					</div>
+					<div class="col-sm-6">
+						<!--<label for="">Latitud</label>-->
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.latitud.errors }" formControlName="latitud" id="" placeholder="Latitud">
+						<div *ngIf="submitted && f.latitud.errors" class="invalid-feedback">
+                      		<div *ngIf="f.latitud.errors.required">Debe ingresar la longitud</div>
+                		</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<!--<label for="">Horario 1</label>-->
+					<input type="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.horario1.errors }" formControlName="horario1" id="" placeholder="Horario 1">
+						<div *ngIf="submitted && f.horario1.errors" class="invalid-feedback">
+                      		<div *ngIf="f.horario1.errors.required">Debe ingresar el horario</div>
+                		</div>
+				</div>
+				<div class="form-group">
+					<!--<label for="">Horario 2</label>-->
+					<input type="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.horario2.errors }" formControlName="horario2" id="" placeholder="Horario 2">
+						<div *ngIf="submitted && f.horario2.errors" class="invalid-feedback">
+                      		<div *ngIf="f.horario2.errors.required">Debe ingresar el horario</div>
+                		</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="agregarLocal()" [disabled]="loading" >Aceptar</button>
+</div>
