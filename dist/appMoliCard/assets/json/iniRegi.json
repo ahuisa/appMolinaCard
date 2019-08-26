@@ -1,0 +1,108 @@
+{
+    "lstCategorias": [
+        {
+            "idCategoria": 1,
+            "descripcion": "comida"
+        }
+    ],
+    "lstTipoBeneficios": [
+        {
+            "idTipoBeneficio": 1,
+            "descripcion": "Beneficio"
+        },
+        {
+            "idTipoBeneficio": 2,
+            "descripcion": "Sorteo"
+        }
+    ],
+    "lstNivelMorosidad": [
+        {
+            "idNivelMorosidad": 1,
+            "descripcion": "Anual"
+        },
+        {
+            "idNivelMorosidad": 2,
+            "descripcion": "Puntual"
+        },
+        {
+            "idNivelMorosidad": 3,
+            "descripcion": "> 3"
+        },
+        {
+            "idNivelMorosidad": 4,
+            "descripcion": "> 6"
+        },
+        {
+            "idNivelMorosidad": 5,
+            "descripcion": "D. Anual"
+        },
+        {
+            "idNivelMorosidad": 6,
+            "descripcion": "D. Puntual"
+        }
+    ],
+    "lstSegmentos": [
+        {
+            "idSegmento": 1,
+            "minRango": 0,
+            "maxRango": 5,
+            "descripcion": "Babys"
+        },
+        {
+            "idSegmento": 2,
+            "minRango": 6,
+            "maxRango": 12,
+            "descripcion": "Kids"
+        },
+        {
+            "idSegmento": 3,
+            "minRango": 13,
+            "maxRango": 17,
+            "descripcion": "Teens"
+        },
+        {
+            "idSegmento": 4,
+            "minRango": 18,
+            "maxRango": 25,
+            "descripcion": "Millennials"
+        },
+        {
+            "idSegmento": 5,
+            "minRango": 26,
+            "maxRango": 35,
+            "descripcion": "Adulto Joven"
+        },
+        {
+            "idSegmento": 6,
+            "minRango": 36,
+            "maxRango": 45,
+            "descripcion": "Adulto"
+        }
+    ],
+    "lstEstadoBeneficio": [
+        {
+            "idEstadoBeneficio": 1,
+            "descripcion": "Pendiente"
+        },
+        {
+            "idEstadoBeneficio": 3,
+            "descripcion": "Publicado"
+        },
+        {
+            "idEstadoBeneficio": 2,
+            "descripcion": "Rechazado"
+        },
+        {
+            "idEstadoBeneficio": 4,
+            "descripcion": "Anulado"
+        }
+    ],
+    "lstEmpresas": [
+        {
+            "idTipoDocu": 4,
+            "nroDocu": 22222222222,
+            "razonSocial": "KFC",
+            "razonSocialCorto": "KCF"
+        }
+    ]
+}

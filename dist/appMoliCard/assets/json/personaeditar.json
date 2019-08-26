@@ -1,0 +1,30 @@
+{
+	"lstTipoDocumento": [
+		{
+			"idTipoDocu": 1,
+			"nomCorto": "CASADO"
+		}
+	],
+	"lstEstadoCivil": [
+		{
+			"idEstadoCivil": 1,
+			"descripcion": "CASADO"
+		}
+	],
+	"persona" : {
+		"nombres": "prueba",
+		"apePater": "prueba",
+		"apeMater": "prueba",
+		"idTipoDocu": "1",
+		"nroDocu": "46145927",
+		"fecNacimiento": "string",
+		"strFecNacimiento": "string",
+		"idSexo": "M",
+		"imagen": "1",
+		"direccion": "Prueba",
+		"estCivil": "1",
+		"correoElect": "ahuisa@gmail.com",
+		"telefono": "980460549",
+		"estado": "1"
+	}
+}
