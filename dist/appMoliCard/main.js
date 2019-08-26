@@ -4215,7 +4215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint_contrasena", function() { return endpoint_contrasena; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dtOptions", function() { return dtOptions; });
 
-var url_base = "https://api.munimolina.gob.pe";
+var url_base = "http://api.munimolina.gob.pe";
 var endpoint_login = '/login';
 var endpoint_beneficios = '/beneficios';
 var endpoint_ini_beneficios = '/beneficios/iniRegi';
