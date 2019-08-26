@@ -43,7 +43,7 @@
                   <div class="card-columns">
                     <ng-container *ngFor="let item of beneficios;">
                       <div class="card" *ngIf="item.estado == '1'">
-                        <img src="https://img.pngio.com/fast-food-french-fries-onion-ring-kfc-chicken-nugget-bucket-bucket-of-fried-chicken-png-900_560.jpg" class="card-img-top" alt="...">
+                        <img src="{{item.imagen}}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title"><span [innerHTML]="item.descripcion1"></span> - <span [innerHTML]="item.razonSocial"></span></h5>
                           <p class="card-text">
@@ -70,7 +70,7 @@
                   <div class="card-columns">
                     <ng-container *ngFor="let item of beneficios;">
                         <div class="card" *ngIf="item.estado == '0'">
-                          <img src="https://img.pngio.com/fast-food-french-fries-onion-ring-kfc-chicken-nugget-bucket-bucket-of-fried-chicken-png-900_560.jpg" class="card-img-top" alt="...">
+                          <img src="{{item.imagen}}" class="card-img-top" alt="...">
                           <div class="card-body">
                             <h5 class="card-title"><span [innerHTML]="item.descripcion1"></span> - <span [innerHTML]="item.razonSocial"></span></h5>
                           </div>
