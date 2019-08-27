@@ -55,7 +55,7 @@
 					<div class="col-sm-6">
 	                    <div class="input-group">
 							<input readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fecNacimiento.errors }" formControlName="fecNacimiento" placeholder="Fecha Nacimiento"
-								name="fecNacimiento" [(ngModel)]="fecNacimiento"  ngbDatepicker #d="ngbDatepicker">
+								name="fecNacimiento"  ngbDatepicker #d="ngbDatepicker">
 							<div class="input-group-append">
 								<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
 							</div>

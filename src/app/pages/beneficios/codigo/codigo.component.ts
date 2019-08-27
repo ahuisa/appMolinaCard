@@ -33,7 +33,6 @@ export class CodigoComponent implements OnInit {
 		private beneficioService: BeneficioService) {}
 
 	ngOnInit() {
-		console.log(this.params);
 		this.lstTipoDocumento = this.params.lstTipoDocumento;
 
 		this.frmCodigo = this.formBuilder.group({

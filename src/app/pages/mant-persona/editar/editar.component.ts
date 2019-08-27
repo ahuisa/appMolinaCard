@@ -38,7 +38,6 @@ export class EditarPersonaComponent implements OnInit {
 		private router: Router) {}
 
 	ngOnInit() {
-		console.log(this.persona);
 		this.frmPersona = this.formBuilder.group({
 			idTipoDocu: [''],
 			nroDocu: [''],
@@ -60,7 +59,6 @@ export class EditarPersonaComponent implements OnInit {
 			this.lstEstadoCivil = res.lstEstadoCivil;
 			this.personaBean = res.persona;
 			this.cargarDatos();
-			console.log(res);
 		}, error => {
 			if(error.status == 401){
 				this.router.navigate(['/login']);
@@ -81,6 +79,19 @@ export class EditarPersonaComponent implements OnInit {
 		this.frmPersona.controls['correoElect'].setValue(this.personaBean.correoElect); 
 		this.frmPersona.controls['telefono'].setValue(this.personaBean.telefono); 
 		this.frmPersona.controls['estado'].setValue(this.personaBean.estado); 
+
+		let date = new Date(this.personaBean.fecNacimiento);
+		let dd = date.getUTCDate() + ""; 
+		let mm = date.getUTCMonth() + ""; 
+		let yyyy = date.getUTCFullYear() + ""; 
+
+
+		this.frmPersona.controls['fecNacimiento'].setValue({
+			year: parseInt(yyyy, 10),
+			month: parseInt(mm, 10),
+			day: parseInt(dd, 10)
+		}); 
+
 	}
 
 
@@ -88,7 +99,6 @@ export class EditarPersonaComponent implements OnInit {
 		this.submitted = true;
 		this.error = '';
 		if (this.frmPersona.invalid) {
-			console.log(this.frmPersona);
 			return;
 		}
 		this.loading = true;
@@ -101,7 +111,7 @@ export class EditarPersonaComponent implements OnInit {
 			apePater: params.apePater,
 			apeMater: params.apeMater,
 			fecNacimiento: null,
-			strFecNacimiento: this.getDateFormat(this.fecNacimiento),
+			strFecNacimiento: this.getDateFormat(params.fecNacimiento),
 			idSexo: params.idSexo,
 			direccion: params.direccion,
 			idEstadoCivil: params.estCivil,

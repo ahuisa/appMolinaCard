@@ -1,6 +1,6 @@
 'use strict';
 
-export const url_base = "http://api.munimolina.gob.pe";
+export const url_base = "https://api.munimolina.gob.pe";
 
 export const endpoint_login = '/login';
 

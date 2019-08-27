@@ -54,8 +54,6 @@ export class MantPersonaComponent implements OnInit {
     });
   }
   cargarPersona(idTipoDocu, nroDocu){
-    console.log(idTipoDocu);
-    console.log(nroDocu);
     this.modalOption.backdrop = 'static';
     this.modalOption.keyboard = false;
     this.modalOption.size = 'lg';

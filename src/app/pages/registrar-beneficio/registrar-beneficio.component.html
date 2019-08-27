@@ -74,7 +74,7 @@
       							<!--<label for="">Fecha Inicio</label>-->
                     <div class="input-group">
                       <input class="form-control" placeholder="Fecha Inicio"
-                        name="fecInicio" [ngClass]="{ 'is-invalid': submitted && f.fecInicio.errors }" formControlName="fecInicio" [(ngModel)]="fecInicio" ngbDatepicker #d="ngbDatepicker">
+                        name="fecInicio" [ngClass]="{ 'is-invalid': submitted && f.fecInicio.errors }" formControlName="fecInicio" ngbDatepicker #d="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
                       </div>
@@ -93,7 +93,7 @@
       							<!--<label for="">Fecha Fin</label>-->
                     <div class="input-group">
                       <input class="form-control" placeholder="Fecha Fin"
-                        name="fecFin" [(ngModel)]="fecFin"  formControlName="fecFin" ngbDatepicker #df="ngbDatepicker"
+                        name="fecFin"  formControlName="fecFin" ngbDatepicker #df="ngbDatepicker"
                         [ngClass]="{ 'is-invalid': submitted && f.fecFin.errors }">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="df.toggle()" type="button"><i class="fa fa-calendar"></i></button>

@@ -51,7 +51,6 @@ export class AgregarUsuarioComponent implements OnInit {
 			this.lstTipoDocumento= res.lstTipoDocumento;
 			this.lstTipoUsuario= res.lstTipoUsuario;
 			this.addCheckboxes();
-			console.log(res);
 		}, error => {
 			if(error.status == 401){
 			}
@@ -68,14 +67,11 @@ export class AgregarUsuarioComponent implements OnInit {
 
 	validarPersona(){
 		let params = this.frmUsuario.value;
-		console.log(params);
 		let tipoUsuario = params.idTipoUsuario.split("-");
 		let tipoDocu = params.idTipoDocu.split("-");
 		let nroDocu = params.nroDocu;
 		
 		this.usuarioService.getPersona(tipoDocu[0], nroDocu, tipoDocu[1], tipoUsuario[1]).subscribe(res => {
-			
-			console.log(res);
 			if(res == null || res.nombreUsu == null){
 				this.frmUsuario.controls['razonSocial'].setValue(''); 
 			} else {
@@ -102,7 +98,6 @@ export class AgregarUsuarioComponent implements OnInit {
 		let tipoDocu = params.idTipoDocuPadre;
 		let nroDocu = params.nroDocuPadre;
 		this.usuarioService.getContribuyente(tipoDocu, nroDocu).subscribe(res => {
-			console.log(res);
 			if(res == null || res.contribuyente == null){
 				this.frmUsuario.controls['contribuyente'].setValue(''); 
 			} else {

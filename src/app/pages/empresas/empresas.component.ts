@@ -28,7 +28,6 @@ export class EmpresasComponent implements OnInit {
 	ngOnInit() {
 		this.empresaService.listar().subscribe(res => {
 			this.empresas = res;
-			console.log(res);
 			this.rerender();
 		}, error => {
 			if(error.status == 403){

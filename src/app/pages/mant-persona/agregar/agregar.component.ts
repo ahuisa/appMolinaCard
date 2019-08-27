@@ -53,7 +53,6 @@ export class AgregarPersonaComponent implements OnInit {
 		this.personaService.iniRegi().subscribe(res => {
 			this.lstTipoDocumento = res.lstTipoDocumento;
 			this.lstEstadoCivil = res.lstEstadoCivil;
-			console.log(res);
 		}, error => {
 			if(error.status == 401){
 			}
@@ -66,7 +65,6 @@ export class AgregarPersonaComponent implements OnInit {
 		this.submitted = true;
 		this.error = '';
 		if (this.frmPersona.invalid) {
-			console.log(this.frmPersona);
 			return;
 		}
 		this.loading = true;
@@ -79,7 +77,7 @@ export class AgregarPersonaComponent implements OnInit {
 			apePater: params.apePater,
 			apeMater: params.apeMater,
 			fecNacimiento: null,
-			strFecNacimiento: this.getDateFormat(this.fecNacimiento),
+			strFecNacimiento: this.getDateFormat(params.fecNacimiento),
 			idSexo: params.idSexo,
 			direccion: params.direccion,
 			idEstadoCivil: params.estCivil,

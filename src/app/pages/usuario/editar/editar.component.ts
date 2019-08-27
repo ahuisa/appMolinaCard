@@ -59,7 +59,6 @@ export class EditarUsuarioComponent implements OnInit {
 			this.usuarioBean = res.usuario;
 			this.addCheckboxes();
 			this.cargarDatos();
-			console.log(res);
 		}, error => {
 			if(error.status == 401){
 			}
@@ -134,7 +133,6 @@ export class EditarUsuarioComponent implements OnInit {
 			validado: true
 		};
 
-		console.log(usuario);
 		
 		this.loading = false;
 		

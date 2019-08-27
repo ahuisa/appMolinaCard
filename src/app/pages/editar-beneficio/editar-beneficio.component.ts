@@ -71,7 +71,6 @@ export class EditarBeneficioComponent implements OnInit {
 			detalle: [''/*, Validators.required*/],
 			estado: ['', Validators.required],
 			imagen: [''/*, Validators.required*/],
-			imagenHddn: [this.nombreArchivoHddn],
 		});
 
 		let data = localStorage.getItem('param');
@@ -150,7 +149,6 @@ export class EditarBeneficioComponent implements OnInit {
 		this.fechaFin = new Date(this.beneficioResponse.fecFin);
 		this.beneficioForm.controls['fecInicio'].setValue(this.getDateFormat2(this.beneficioResponse.fecIni)); 
 		this.beneficioForm.controls['fecFin'].setValue(this.getDateFormat2(this.beneficioResponse.fecFin)); 
-		console.log(this.fechaInicio);
 
 
 		this.beneficioForm.controls['descripcion1'].setValue(this.beneficioResponse.descripcion1); 
@@ -166,7 +164,7 @@ export class EditarBeneficioComponent implements OnInit {
 		this.beneficioForm.controls['terminos'].setValue(this.beneficioResponse.restricciones); 
 		this.beneficioForm.controls['detalle'].setValue(this.beneficioResponse.detalleEstado); 
 		this.beneficioForm.controls['estado'].setValue(this.beneficioResponse.idEstadoBeneficio); 
-		console.log(this.beneficioForm.value);
+		this.beneficioForm.controls['imagen'].setValue(this.beneficioResponse.imagen); 
 	}
 
 	onSubmit(){
@@ -174,7 +172,6 @@ export class EditarBeneficioComponent implements OnInit {
 		this.submitted = true;
 		this.error = '';
 		let params = this.beneficioForm.value;
-		console.log(params);
 		if (this.beneficioForm.invalid) {
 			return;
 		}
@@ -197,8 +194,8 @@ export class EditarBeneficioComponent implements OnInit {
 			detalleEstado : params.detalle,
 			fecIni : null,
 			fecFin : null,
-			strFecIni : this.getDateFormat(this.fecInicio),
-			strFecFin : this.getDateFormat(this.fecFin),
+			strFecIni : this.getDateFormat(params.fecInicio),
+			strFecFin : this.getDateFormat(params.fecFin),
 			idTipoDocu : empresa[0],
 			nroDocu : empresa[1],
 			idTipoBeneficio : params.lstTipoBeneficios,

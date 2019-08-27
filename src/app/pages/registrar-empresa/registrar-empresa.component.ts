@@ -67,7 +67,6 @@ export class RegistrarEmpresaComponent implements OnInit {
 		if(this.accion == 'n'){
 			this.empresaService.iniRegi().subscribe(res => {
 				this.lstTipoDocumento = res.lstTipoDocumento;
-				console.log(res);
 			}, error => {
 				if(error.status == 403){
 					this.router.navigate(['/login']);
@@ -90,7 +89,6 @@ export class RegistrarEmpresaComponent implements OnInit {
 					this.lstLocales = res.lstLocalEmpresa;
 					this.empresaBean = res.empresa;
 					this.cargarDatos();
-					console.log(this.lstLocales);
 				}, error => {
 					if(error.status == 403){
 						this.router.navigate(['/login']);
@@ -124,7 +122,6 @@ export class RegistrarEmpresaComponent implements OnInit {
 		modalRef.result.then((result: Local) => {
 			if (result) {
 				this.lstLocales[index] = result;
-				console.log(this.lstLocales);
 			}
 		});
 	}
@@ -147,7 +144,6 @@ export class RegistrarEmpresaComponent implements OnInit {
 						this.lstLocales[index] = local;
 					}
 				}
-				console.log(this.lstLocales);
 			}
 		});
 	}
@@ -165,11 +161,12 @@ export class RegistrarEmpresaComponent implements OnInit {
 		var reader = new FileReader();
 		this.imagePath = files;
 		this.nombreArchivo = files[0].name;
+		this.frmEmpresa.controls['imagen'].setValue(this.nombreArchivo);
 		reader.readAsDataURL(files[0]); 
 		reader.onload = (_event) => { 
 		this.imgURL = reader.result; 
 		}
-		}
+	}
 
 	registrarEmpresa(){
 		this.submitted = true;

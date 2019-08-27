@@ -27,7 +27,7 @@ export class BeneficiosEmpresaComponent implements OnInit {
 		this.beneficioService.beneficioPorEmpresa(this.user.idTipoDocu,this.user.nroDocu).subscribe(res => {
 			this.beneficios = res.lstBeneficios;
 			this.lstTipoDocumento = res.lstTipoDocumento;
-			console.log(res);
+
 		}, error => {
 			if(error.status == 401){
 				this.router.navigate(['/login']);
