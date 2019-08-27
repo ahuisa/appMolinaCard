@@ -775,7 +775,6 @@ var CodigoComponent = /** @class */ (function () {
         this.modalOption = {};
     }
     CodigoComponent.prototype.ngOnInit = function () {
-        console.log(this.params);
         this.lstTipoDocumento = this.params.lstTipoDocumento;
         this.frmCodigo = this.formBuilder.group({
             tipo: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
@@ -845,7 +844,7 @@ var CodigoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <!-- Page Wrapper -->\n  <div id=\"wrapper\">\n\n  \t<!-- Sidebar -->\n  \t<app-menu></app-menu>\n  \t<!-- End of Sidebar -->\n\n  \t<!-- Content Wrapper -->\n  \t<div id=\"content-wrapper\" class=\"d-flex flex-column\">\n\n  \t\t<!-- Main Content -->\n  \t\t<div id=\"content\">\n\n  \t\t\t<!-- Topbar -->\n  \t\t\t<app-cabecera></app-cabecera>\n  \t\t\t<!-- End of Topbar -->\n\n  \t\t\t<!-- Begin Page Content -->\n  \t\t\t<div class=\"container-fluid\">\n\n  \t\t\t\t<!-- Page Heading -->\n  \t\t\t\t<div class=\"d-sm-flex align-items-center justify-content-between mb-4\">\n  \t\t\t\t\t<h1 class=\"h3 mb-0 text-gray-800\">Beneficio</h1>\n            <a [routerLink]=\"['/registrar-beneficio']\" class=\"d-none d-sm-inline-block btn btn-sm btn-primary btn-icon-split shadow-sm\">\n              <span class=\"icon text-white-50\">\n                  <i class=\"fa fa-plus\"></i>\n                </span>\n                <span class=\"text\">Nuevo</span>\n            </a>\n  \t\t\t\t</div>\n          <div class=\"accordion\" id=\"accordionExample\">\n            <div class=\"card\">\n              <div class=\"card-header bg-primary\" id=\"headingOne\">\n                <h2 class=\"mb-0\">\n                  <button class=\"btn btn-link btn-block text-white\" type=\"button\" data-toggle=\"collapse\" data-target=\"#panelActivos\" aria-expanded=\"true\" aria-controls=\"panelActivos\">\n                    Activos\n                  </button>\n                </h2>\n              </div>\n\n              <div id=\"panelActivos\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordionExample\">\n                <div class=\"card-body\">\n                  <div class=\"card-columns\">\n                    <ng-container *ngFor=\"let item of beneficios;\">\n                      <div class=\"card\" *ngIf=\"item.estado == '1'\">\n                        <img src=\"{{item.imagen}}\" class=\"card-img-top\" alt=\"...\">\n                        <div class=\"card-body\">\n                          <h5 class=\"card-title\"><span [innerHTML]=\"item.descripcion1\"></span> - <span [innerHTML]=\"item.razonSocial\"></span></h5>\n                          <p class=\"card-text\">\n                            <button class=\"btn btn-primary btn-block\" (click)=\"cargarValidar(item.idBeneficio)\">Validar C&oacute;digo</button>\n\n                          </p>\n                        </div>\n                      </div>\n                    </ng-container>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"card\">\n              <div class=\"card-header bg-primary\" id=\"headingTwo\">\n                <h2 class=\"mb-0\">\n                  <button class=\"btn btn-link collapsed btn-block text-white\" type=\"button\" data-toggle=\"collapse\" data-target=\"#panelInactivos\" aria-expanded=\"false\" aria-controls=\"panelInactivos\">\n                    Caducados\n                  </button>\n                </h2>\n              </div>\n              <div id=\"panelInactivos\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionExample\">\n                <div class=\"card-body\">\n                  <div class=\"card-columns\">\n                    <ng-container *ngFor=\"let item of beneficios;\">\n                        <div class=\"card\" *ngIf=\"item.estado == '0'\">\n                          <img src=\"{{item.imagen}}\" class=\"card-img-top\" alt=\"...\">\n                          <div class=\"card-body\">\n                            <h5 class=\"card-title\"><span [innerHTML]=\"item.descripcion1\"></span> - <span [innerHTML]=\"item.razonSocial\"></span></h5>\n                          </div>\n                        </div>\n                      </ng-container>\n                    </div>\n                </div>\n              </div>\n            </div>\n          </div>\n\n  \t\t\t</div>\n  \t\t\t<!-- /.container-fluid -->\n\n  \t\t</div>\n  \t\t<!-- End of Main Content -->\n\n  \t\t<!-- Footer -->\n  \t\t<app-footer></app-footer>\n  \t\t<!-- End of Footer -->\n\n  \t</div>\n  \t<!-- End of Content Wrapper -->\n\n  </div>\n  <!-- End of Page Wrapper -->\n\n  <!-- Scroll to Top Button-->\n  <a class=\"scroll-to-top rounded\" href=\"#page-top\">\n  \t<i class=\"fa fa-angle-up\"></i>\n  </a>\n\n  <!-- Logout Modal-->\n  <app-msesion></app-msesion>"
+module.exports = "  <!-- Page Wrapper -->\n  <div id=\"wrapper\">\n\n  \t<!-- Sidebar -->\n  \t<app-menu></app-menu>\n  \t<!-- End of Sidebar -->\n\n  \t<!-- Content Wrapper -->\n  \t<div id=\"content-wrapper\" class=\"d-flex flex-column\">\n\n  \t\t<!-- Main Content -->\n  \t\t<div id=\"content\">\n\n  \t\t\t<!-- Topbar -->\n  \t\t\t<app-cabecera></app-cabecera>\n  \t\t\t<!-- End of Topbar -->\n\n  \t\t\t<!-- Begin Page Content -->\n  \t\t\t<div class=\"container-fluid\">\n\n  \t\t\t\t<!-- Page Heading -->\n  \t\t\t\t<div class=\"d-sm-flex align-items-center justify-content-between mb-4\">\n  \t\t\t\t\t<h1 class=\"h3 mb-0 text-gray-800\">Beneficio</h1>\n            <a [routerLink]=\"['/registrar-beneficio']\" class=\"d-none d-sm-inline-block btn btn-sm btn-primary btn-icon-split shadow-sm\">\n              <span class=\"icon text-white-50\">\n                  <i class=\"fa fa-plus\"></i>\n                </span>\n                <span class=\"text\">Nuevo</span>\n            </a>\n  \t\t\t\t</div>\n          <div class=\"accordion\" id=\"accordionExample\">\n            <div class=\"card\">\n              <div class=\"card-header bg-primary\" id=\"headingOne\">\n                <h2 class=\"mb-0\">\n                  <button class=\"btn btn-link btn-block text-white\" type=\"button\" data-toggle=\"collapse\" data-target=\"#panelActivos\" aria-expanded=\"true\" aria-controls=\"panelActivos\">\n                    Activos\n                  </button>\n                </h2>\n              </div>\n\n              <div id=\"panelActivos\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordionExample\">\n                <div class=\"card-body\">\n                  <div class=\"card-columns\">\n                    <ng-container *ngFor=\"let item of beneficios;\">\n                      <div class=\"card\" *ngIf=\"item.estado == '1'\">\n                        <img src=\"{{item.urlImagen}}\" class=\"card-img-top\" alt=\"...\">\n                        <div class=\"card-body\">\n                          <h5 class=\"card-title\"><span [innerHTML]=\"item.descripcion1\"></span> - <span [innerHTML]=\"item.razonSocial\"></span></h5>\n                          <p class=\"card-text\">\n                            <button class=\"btn btn-primary btn-block\" (click)=\"cargarValidar(item.idBeneficio)\">Validar C&oacute;digo</button>\n\n                          </p>\n                        </div>\n                      </div>\n                    </ng-container>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"card\">\n              <div class=\"card-header bg-primary\" id=\"headingTwo\">\n                <h2 class=\"mb-0\">\n                  <button class=\"btn btn-link collapsed btn-block text-white\" type=\"button\" data-toggle=\"collapse\" data-target=\"#panelInactivos\" aria-expanded=\"false\" aria-controls=\"panelInactivos\">\n                    Caducados\n                  </button>\n                </h2>\n              </div>\n              <div id=\"panelInactivos\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionExample\">\n                <div class=\"card-body\">\n                  <div class=\"card-columns\">\n                    <ng-container *ngFor=\"let item of beneficios;\">\n                        <div class=\"card\" *ngIf=\"item.estado == '0'\">\n                          <img src=\"{{item.imagen}}\" class=\"card-img-top\" alt=\"...\">\n                          <div class=\"card-body\">\n                            <h5 class=\"card-title\"><span [innerHTML]=\"item.descripcion1\"></span> - <span [innerHTML]=\"item.razonSocial\"></span></h5>\n                          </div>\n                        </div>\n                      </ng-container>\n                    </div>\n                </div>\n              </div>\n            </div>\n          </div>\n\n  \t\t\t</div>\n  \t\t\t<!-- /.container-fluid -->\n\n  \t\t</div>\n  \t\t<!-- End of Main Content -->\n\n  \t\t<!-- Footer -->\n  \t\t<app-footer></app-footer>\n  \t\t<!-- End of Footer -->\n\n  \t</div>\n  \t<!-- End of Content Wrapper -->\n\n  </div>\n  <!-- End of Page Wrapper -->\n\n  <!-- Scroll to Top Button-->\n  <a class=\"scroll-to-top rounded\" href=\"#page-top\">\n  \t<i class=\"fa fa-angle-up\"></i>\n  </a>\n\n  <!-- Logout Modal-->\n  <app-msesion></app-msesion>"
 
 /***/ }),
 
@@ -896,7 +895,6 @@ var BeneficiosEmpresaComponent = /** @class */ (function () {
         this.beneficioService.beneficioPorEmpresa(this.user.idTipoDocu, this.user.nroDocu).subscribe(function (res) {
             _this.beneficios = res.lstBeneficios;
             _this.lstTipoDocumento = res.lstTipoDocumento;
-            console.log(res);
         }, function (error) {
             if (error.status == 401) {
                 _this.router.navigate(['/login']);
@@ -1152,7 +1150,6 @@ var EditarBeneficioComponent = /** @class */ (function () {
             detalle: ['' /*, Validators.required*/],
             estado: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
             imagen: ['' /*, Validators.required*/],
-            imagenHddn: [this.nombreArchivoHddn],
         });
         var data = localStorage.getItem('param');
         if (data == '') {
@@ -1242,6 +1239,7 @@ var EditarBeneficioComponent = /** @class */ (function () {
         this.beneficioForm.controls['terminos'].setValue(this.beneficioResponse.restricciones);
         this.beneficioForm.controls['detalle'].setValue(this.beneficioResponse.detalleEstado);
         this.beneficioForm.controls['estado'].setValue(this.beneficioResponse.idEstadoBeneficio);
+        this.beneficioForm.controls['imagen'].setValue(this.beneficioResponse.imagen);
     };
     EditarBeneficioComponent.prototype.onSubmit = function () {
         var _this = this;
@@ -1434,7 +1432,6 @@ var EmpresasComponent = /** @class */ (function () {
         var _this = this;
         this.empresaService.listar().subscribe(function (res) {
             _this.empresas = res;
-            console.log(res);
             _this.rerender();
         }, function (error) {
             if (error.status == 403) {
@@ -1683,7 +1680,6 @@ var AgregarPersonaComponent = /** @class */ (function () {
         this.personaService.iniRegi().subscribe(function (res) {
             _this.lstTipoDocumento = res.lstTipoDocumento;
             _this.lstEstadoCivil = res.lstEstadoCivil;
-            console.log(res);
         }, function (error) {
             if (error.status == 401) {
             }
@@ -1699,7 +1695,6 @@ var AgregarPersonaComponent = /** @class */ (function () {
         this.submitted = true;
         this.error = '';
         if (this.frmPersona.invalid) {
-            console.log(this.frmPersona);
             return;
         }
         this.loading = true;
@@ -1857,7 +1852,6 @@ var EditarPersonaComponent = /** @class */ (function () {
     }
     EditarPersonaComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log(this.persona);
         this.frmPersona = this.formBuilder.group({
             idTipoDocu: [''],
             nroDocu: [''],
@@ -1878,7 +1872,6 @@ var EditarPersonaComponent = /** @class */ (function () {
             _this.lstEstadoCivil = res.lstEstadoCivil;
             _this.personaBean = res.persona;
             _this.cargarDatos();
-            console.log(res);
         }, function (error) {
             if (error.status == 401) {
                 _this.router.navigate(['/login']);
@@ -1912,7 +1905,6 @@ var EditarPersonaComponent = /** @class */ (function () {
         this.submitted = true;
         this.error = '';
         if (this.frmPersona.invalid) {
-            console.log(this.frmPersona);
             return;
         }
         this.loading = true;
@@ -2115,8 +2107,6 @@ var MantPersonaComponent = /** @class */ (function () {
     };
     MantPersonaComponent.prototype.cargarPersona = function (idTipoDocu, nroDocu) {
         var _this = this;
-        console.log(idTipoDocu);
-        console.log(nroDocu);
         this.modalOption.backdrop = 'static';
         this.modalOption.keyboard = false;
         this.modalOption.size = 'lg';
@@ -2792,7 +2782,6 @@ var RegistrarEmpresaComponent = /** @class */ (function () {
         if (this.accion == 'n') {
             this.empresaService.iniRegi().subscribe(function (res) {
                 _this.lstTipoDocumento = res.lstTipoDocumento;
-                console.log(res);
             }, function (error) {
                 if (error.status == 403) {
                     _this.router.navigate(['/login']);
@@ -2817,7 +2806,6 @@ var RegistrarEmpresaComponent = /** @class */ (function () {
                     _this.lstLocales = res.lstLocalEmpresa;
                     _this.empresaBean = res.empresa;
                     _this.cargarDatos();
-                    console.log(_this.lstLocales);
                 }, function (error) {
                     if (error.status == 403) {
                         _this.router.navigate(['/login']);
@@ -2849,7 +2837,6 @@ var RegistrarEmpresaComponent = /** @class */ (function () {
         modalRef.result.then(function (result) {
             if (result) {
                 _this.lstLocales[index] = result;
-                console.log(_this.lstLocales);
             }
         });
     };
@@ -2874,7 +2861,6 @@ var RegistrarEmpresaComponent = /** @class */ (function () {
                         _this.lstLocales[index] = local;
                     }
                 }
-                console.log(_this.lstLocales);
             }
         });
     };
@@ -3071,7 +3057,6 @@ var AgregarUsuarioComponent = /** @class */ (function () {
             _this.lstTipoDocumento = res.lstTipoDocumento;
             _this.lstTipoUsuario = res.lstTipoUsuario;
             _this.addCheckboxes();
-            console.log(res);
         }, function (error) {
             if (error.status == 401) {
             }
@@ -3087,12 +3072,10 @@ var AgregarUsuarioComponent = /** @class */ (function () {
     AgregarUsuarioComponent.prototype.validarPersona = function () {
         var _this = this;
         var params = this.frmUsuario.value;
-        console.log(params);
         var tipoUsuario = params.idTipoUsuario.split("-");
         var tipoDocu = params.idTipoDocu.split("-");
         var nroDocu = params.nroDocu;
         this.usuarioService.getPersona(tipoDocu[0], nroDocu, tipoDocu[1], tipoUsuario[1]).subscribe(function (res) {
-            console.log(res);
             if (res == null || res.nombreUsu == null) {
                 _this.frmUsuario.controls['razonSocial'].setValue('');
             }
@@ -3118,7 +3101,6 @@ var AgregarUsuarioComponent = /** @class */ (function () {
         var tipoDocu = params.idTipoDocuPadre;
         var nroDocu = params.nroDocuPadre;
         this.usuarioService.getContribuyente(tipoDocu, nroDocu).subscribe(function (res) {
-            console.log(res);
             if (res == null || res.contribuyente == null) {
                 _this.frmUsuario.controls['contribuyente'].setValue('');
             }
@@ -3313,7 +3295,6 @@ var EditarUsuarioComponent = /** @class */ (function () {
             _this.usuarioBean = res.usuario;
             _this.addCheckboxes();
             _this.cargarDatos();
-            console.log(res);
         }, function (error) {
             if (error.status == 401) {
             }
@@ -3382,7 +3363,6 @@ var EditarUsuarioComponent = /** @class */ (function () {
             verificado: true,
             validado: true
         };
-        console.log(usuario);
         this.loading = false;
         this.usuarioService.actualizar(usuario)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
