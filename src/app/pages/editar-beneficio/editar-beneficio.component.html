@@ -128,7 +128,7 @@
 										</div>
                   </div>
                   <div class="col-sm-4 mb-3 mb-sm-0">
-                    <ng-template #popContent><img *ngIf="beneficioResponse" class="img-fluid" src="beneficioResponse.urlImagen" /></ng-template>
+                    <ng-template #popContent><img *ngIf="beneficioResponse" class="img-fluid" [src]="beneficioResponse.urlImagen" /></ng-template>
                     <a href="javascript:void(0)" [ngbPopover]="popContent" class="btn btn-success text-white"><span class="text">Ver imagen</span></a>
                   </div>
                   <!--<div class="col-sm-6">

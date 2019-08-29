@@ -67,7 +67,7 @@
 									</div>
 
 									<div *ngIf="accion == 'e'" class="col-sm-4">
-										<ng-template #popContent><img *ngIf="empresaBean" class="img-fluid" src="empresaBean.urlImagen" /></ng-template>
+										<ng-template #popContent><img *ngIf="empresaBean" class="img-fluid" [src]="empresaBean.urlImagen" /></ng-template>
 										<a href="javascrip:void();" class="btn btn-success text-white"><span class="text">Ver imagen</span></a>
 									</div>
 								</div>
