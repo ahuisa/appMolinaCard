@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';		
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModalComponent } from '../../util/modal/modal.component';
+import { ModalImagenComponent } from '../../util/modal-imagen/modal-imagen.component';
 
 @Component({
 	selector: 'app-editarpersona',
@@ -26,7 +27,7 @@ export class EditarPersonaComponent implements OnInit {
 	imagePath: string;
 	imgURL: any;
 	fecNacimiento: Date;
-	personaBean: Persona;
+	personaBean: any;
 	modalOption: NgbModalOptions = {}; 
 
 
@@ -79,6 +80,7 @@ export class EditarPersonaComponent implements OnInit {
 		this.frmPersona.controls['correoElect'].setValue(this.personaBean.correoElect); 
 		this.frmPersona.controls['telefono'].setValue(this.personaBean.telefono); 
 		this.frmPersona.controls['estado'].setValue(this.personaBean.estado); 
+		this.frmPersona.controls['imagen'].setValue(this.personaBean.urlImagen); 
 
 		let date = new Date(this.personaBean.fecNacimiento);
 		let dd = date.getUTCDate() + ""; 
@@ -195,5 +197,15 @@ export class EditarPersonaComponent implements OnInit {
 	}
 
 	get f() { return this.frmPersona.controls; }
+
+	
+	
+
+	verImagen(){
+		this.modalOption.backdrop = 'static';
+		this.modalOption.keyboard = false;
+		const modalRef = this.modalService.open(ModalImagenComponent, this.modalOption);
+		modalRef.componentInstance.urlImagen = this.personaBean.urlImagen;
+	}
 
 }

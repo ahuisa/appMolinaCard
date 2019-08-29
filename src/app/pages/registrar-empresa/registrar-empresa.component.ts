@@ -10,6 +10,7 @@ import { EliminarLocalComponent } from './eliminar/eliminar.component';
 import { first } from 'rxjs/operators';	
 import { EmpresaService } from '../../services/empresa.service';
 import { ModalComponent } from '../util/modal/modal.component';
+import { ModalImagenComponent } from '../util/modal-imagen/modal-imagen.component';
 
 @Component({
 	selector: 'app-registrar-empresa',
@@ -37,7 +38,7 @@ export class RegistrarEmpresaComponent implements OnInit {
 	nroDocu: string;
 
 	//editar
-	empresaBean: Empresa;
+	empresaBean: any;
 	modalOption: NgbModalOptions = {}; 
 
 	constructor(private empresaService: EmpresaService,
@@ -223,7 +224,7 @@ export class RegistrarEmpresaComponent implements OnInit {
 	cargarDatos(){
 		this.frmEmpresa.controls['razonSocial'].setValue(this.empresaBean.razonSocial);
 		this.frmEmpresa.controls['razonSocialCorto'].setValue(this.empresaBean.razonSocialCorto);
-		this.frmEmpresa.controls['imagen'].setValue(this.empresaBean.imagen);
+		this.frmEmpresa.controls['imagen'].setValue(this.empresaBean.urlImagen);
 		this.frmEmpresa.controls['idTipoDocu'].setValue(this.empresaBean.idTipoDocu);
 		this.frmEmpresa.controls['nroDocu'].setValue(this.empresaBean.nroDocu);
 		this.frmEmpresa.controls['telefono'].setValue(this.empresaBean.telefono);
@@ -245,5 +246,12 @@ export class RegistrarEmpresaComponent implements OnInit {
 			this.router.navigate(['/empresas']);
 		});
 	}
+	
 
+	verImagen(){
+		this.modalOption.backdrop = 'static';
+		this.modalOption.keyboard = false;
+		const modalRef = this.modalService.open(ModalImagenComponent, this.modalOption);
+		modalRef.componentInstance.urlImagen = this.empresaBean.urlImagen;
+	}
 }

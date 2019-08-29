@@ -50,7 +50,7 @@ const routes: Routes = [
     },
     {
       path : 'personas',
-      //canActivate: [AuthGuard],
+      canActivate: [AuthGuard],
       component: MantPersonaComponent
     },
     {

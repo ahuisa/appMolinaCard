@@ -8,6 +8,7 @@ import { Segmento } from '../../interfaces/segmento';
 import { first } from 'rxjs/operators';	
 import { NgbActiveModal, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../util/modal/modal.component';
+import { ModalImagenComponent } from '../util/modal-imagen/modal-imagen.component';
 
 @Component({
 	selector: 'app-editar-beneficio',
@@ -164,7 +165,7 @@ export class EditarBeneficioComponent implements OnInit {
 		this.beneficioForm.controls['terminos'].setValue(this.beneficioResponse.restricciones); 
 		this.beneficioForm.controls['detalle'].setValue(this.beneficioResponse.detalleEstado); 
 		this.beneficioForm.controls['estado'].setValue(this.beneficioResponse.idEstadoBeneficio); 
-		this.beneficioForm.controls['imagen'].setValue(this.beneficioResponse.imagen); 
+		this.beneficioForm.controls['imagen'].setValue(this.beneficioResponse.urlImagen); 
 	}
 
 	onSubmit(){
@@ -283,6 +284,13 @@ export class EditarBeneficioComponent implements OnInit {
 		modalRef.result.then((result) => {
 			this.router.navigate(['/beneficios']);
 		});
+	}
+
+	verImagen(){
+		this.modalOption.backdrop = 'static';
+		this.modalOption.keyboard = false;
+		const modalRef = this.modalService.open(ModalImagenComponent, this.modalOption);
+		modalRef.componentInstance.urlImagen = this.beneficioResponse.urlImagen;
 	}
 
 }

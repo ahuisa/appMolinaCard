@@ -10577,6 +10577,7 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
 }
 
 #wrapper #content-wrapper {
@@ -11641,7 +11642,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("../img/muni.jpg");
+  background: url("../img/muni.png");
   background-position: center;
   background-size: cover;
 }

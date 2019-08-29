@@ -33,6 +33,7 @@ import { CodigoComponent } from './pages/beneficios/codigo/codigo.component';
 import { ModalComponent } from './pages/util/modal/modal.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
+import { ModalImagenComponent } from './pages/util/modal-imagen/modal-imagen.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
         CodigoComponent,
         ModalComponent,
         ContrasenaComponent,
+        ModalImagenComponent,
     ],
     imports: [
         BrowserModule,
@@ -85,7 +87,8 @@ import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
         EditarPersonaComponent,
         AgregarUsuarioComponent,
         EditarUsuarioComponent,
-        CodigoComponent
+        CodigoComponent,
+        ModalImagenComponent
     ],
     providers: [FormsModule],
     bootstrap: [AppComponent]

@@ -127,6 +127,7 @@ export class EditarUsuarioComponent implements OnInit {
 
 		let usuario: any = {
 			username: this.usuarioBean.username,
+			password: params.password == null || params.password == ''?null:params.password,
 			lstRol: this.lstRolTemp,
 			estado: '1',
 			verificado: true,

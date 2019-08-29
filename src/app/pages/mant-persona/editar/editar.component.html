@@ -65,7 +65,7 @@
                 		</div>
 						</div>
 					</div>
-					<div class="input-group input-group-sm col-sm-6">
+					<div class="input-group input-group-sm col-sm-5">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroupFileAddon01">Imagen</span>
 						</div>
@@ -74,6 +74,12 @@
 							<input formControlName="imagen" type="hidden" />
 							<label class="custom-file-label" for="inputGroupFile01">{{nombreArchivo}}</label>
 						</div>
+					</div>
+
+					<div class="col-sm-1">
+
+                    	<ng-template #popContent><img *ngIf="personaBean" class="img-fluid" src="personaBean.urlImagen" /></ng-template>
+						<a href="javascript:void(0)" [ngbPopover]="popContent" class="btn btn-success"><span class="text">Ver</span></a>
 					</div>
 				</div>
 				<div class="form-group row">
