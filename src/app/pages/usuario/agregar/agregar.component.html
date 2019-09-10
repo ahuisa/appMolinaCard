@@ -60,7 +60,7 @@
 						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" (focusout)="validarPersona()" formControlName="nroDocu" placeholder="Nro. Documento" />
 
 						<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
-                      		<div *ngIf="f.nroDocu.errors.required">Debe ingresar el tipo de documento</div>
+                      		<div *ngIf="f.nroDocu.errors.required">Debe ingresar el número de documento</div>
                 		</div>
 					</div>
 					<!--<div class="input-group input-group-sm col-sm-4">

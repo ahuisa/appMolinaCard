@@ -126,6 +126,7 @@ export class RegistrarBeneficioComponent implements OnInit {
 			descripcion1 : params.descripcion1,
 			descripcion2 : params.descripcion2,
 			descripcion3 : params.descripcion3,
+			descripcion4 : params.descripcion4,
 			observacion1 : params.observacion1,
 			observacion2 : params.observacion2,
 			observacion3 : params.observacion3,

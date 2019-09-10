@@ -185,6 +185,7 @@ export class EditarBeneficioComponent implements OnInit {
 			descripcion1 : params.descripcion1,
 			descripcion2 : params.descripcion2,
 			descripcion3 : params.descripcion3,
+			descripcion4 : params.descripcion4,
 			observacion1 : params.observacion1,
 			observacion2 : params.observacion2,
 			observacion3 : params.observacion3,
@@ -292,5 +293,28 @@ export class EditarBeneficioComponent implements OnInit {
 		const modalRef = this.modalService.open(ModalImagenComponent, this.modalOption);
 		modalRef.componentInstance.urlImagen = this.beneficioResponse.urlImagen;
 	}
+
+	onFileChange(files) {
+		if (files.length === 0){
+			this.imgURL = '';
+			return;
+		}
+		
+		var mimeType = files[0].type;
+		if (mimeType.match(/image\/*/) == null) {
+			this.imgURL = '';
+			return;
+		}
+
+		var reader = new FileReader();
+		this.imagePath = files;
+		this.nombreArchivo = files[0].name;
+		this.nombreArchivoHddn = files[0].name;
+		reader.readAsDataURL(files[0]); 
+		reader.onload = (_event) => { 
+			this.imgURL = reader.result; 
+		}
+	}
+
 
 }

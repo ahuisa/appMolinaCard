@@ -45,7 +45,7 @@
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" formControlName="descripcion1" id="" placeholder="Descripción 1" [ngClass]="{ 'is-invalid': submitted && f.descripcion1.errors }">
+                    <input type="text" maxlength="40" class="form-control" formControlName="descripcion1" id="" placeholder="Descripción 1" [ngClass]="{ 'is-invalid': submitted && f.descripcion1.errors }">
                     <div *ngIf="submitted && f.descripcion1.errors" class="invalid-feedback">
                       <div *ngIf="f.descripcion1.errors.required">Debe ingresar el campo Descripcion 1</div>
                     </div>
@@ -66,7 +66,7 @@
                   </div>
                   <div class="col-sm-6">
       							<!--<label for="">Descripción 2</label>-->
-                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion2.errors }" formControlName="descripcion2" id="" placeholder="Descripción 2">
+                    <input type="text" maxlength="20" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion2.errors }" formControlName="descripcion2" id="" placeholder="Descripción 2">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -85,7 +85,7 @@
                   </div>
                   <div class="col-sm-6">
       							<!--<label for="">Descripción 3</label>-->
-                    <input type="text" class="form-control" formControlName="descripcion3" id="" placeholder="Descripción 3" [ngClass]="{ 'is-invalid': submitted && f.descripcion3.errors }">
+                    <input type="text" maxlength="20" class="form-control" formControlName="descripcion3" id="" placeholder="Descripción 3" [ngClass]="{ 'is-invalid': submitted && f.descripcion3.errors }">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -116,7 +116,7 @@
                   </div>
                   <div class="col-sm-6">
       							<!--<label for="">Descripción 4</label>-->
-                    <textarea class="form-control" placeholder="Descripción 4" formControlName="descripcion4" id="" rows="5" [ngClass]="{ 'is-invalid': submitted && f.descripcion4.errors }"></textarea>
+                    <textarea maxlength="90" class="form-control" placeholder="Descripción 4" formControlName="descripcion4" id="" rows="5" [ngClass]="{ 'is-invalid': submitted && f.descripcion4.errors }"></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -139,7 +139,7 @@
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
       							<!--<label for="">Observación 1</label>-->
-                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion1.errors }" formControlName="observacion1" class="form-control" id="" placeholder="Observación 1">
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion1.errors }" formControlName="observacion1" maxlength="87" class="form-control" id="" placeholder="Observación 1">
 
                     <div *ngIf="submitted && f.observacion1.errors" class="invalid-feedback">
                       <div *ngIf="f.observacion1.errors.required">Debe ingresar el campo Observacion 1</div>
@@ -147,33 +147,33 @@
                   </div>
                   <div class="col-sm-6">
       							<!--<label for="">Observación 4</label>-->
-                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion4.errors }" formControlName="observacion4" class="form-control" id="" placeholder="Observación 4">
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion4.errors }" formControlName="observacion4" maxlength="87" class="form-control" id="" placeholder="Observación 4">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
       							<!--<label for="">Observación 2</label>-->
-                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion2.errors }" formControlName="observacion2" class="form-control" id="" placeholder="Observación 2">
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion2.errors }" formControlName="observacion2" maxlength="87" class="form-control" id="" placeholder="Observación 2">
                   </div>
                   <div class="col-sm-6">
       							<!--<label for="">Observación 5</label>-->
-                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion5.errors }" formControlName="observacion5" class="form-control" id="" placeholder="Observación 5">
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion5.errors }" formControlName="observacion5" maxlength="87" class="form-control" id="" placeholder="Observación 5">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
       							<!--<label for="">Observación 3</label>-->
-                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion3.errors }" formControlName="observacion3" class="form-control" id="" placeholder="Observación 3">
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion3.errors }" formControlName="observacion3" maxlength="87" class="form-control" id="" placeholder="Observación 3">
                   </div>
                   <div class="col-sm-6">
       							<!--<label for="">Observación 6</label>-->
-                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion6.errors }" formControlName="observacion6" class="form-control" id="" placeholder="Observación 6">
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted && f.observacion6.errors }" formControlName="observacion6" maxlength="87" class="form-control" id="" placeholder="Observación 6">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-12">
                     <!--<label for="">Términos y condiciones</label>-->
-                    <textarea class="form-control" placeholder="Términos y condiciones" formControlName="terminos" id="" rows="5" [ngClass]="{ 'is-invalid': submitted && f.terminos.errors }"></textarea>
+                    <textarea maxlength="450" class="form-control" placeholder="Términos y condiciones" formControlName="terminos" id="" rows="5" [ngClass]="{ 'is-invalid': submitted && f.terminos.errors }"></textarea>
 
                     <div *ngIf="submitted && f.terminos.errors" class="invalid-feedback">
                       <div *ngIf="f.terminos.errors.required">Debe ingresar el campo Términos</div>

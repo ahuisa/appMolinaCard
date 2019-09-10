@@ -3,6 +3,7 @@ export interface Beneficio {
 	descripcion1: string;
 	descripcion2: string;
 	descripcion3: string;
+	descripcion4: string;
 	observacion1: string;
 	observacion2: string;
 	observacion3: string;
