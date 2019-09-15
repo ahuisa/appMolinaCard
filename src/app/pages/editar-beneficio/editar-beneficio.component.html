@@ -67,10 +67,18 @@
                   <div class="col-sm-6 mb-3 mb-sm-0">
       							<!--<label for="">Fecha Inicio</label>-->
                     <div class="input-group">
-                      <input class="form-control" placeholder="Fecha Inicio"
-                        name="fecInicio" [ngClass]="{ 'is-invalid': submitted && f.fecInicio.errors }" formControlName="fecInicio" ngbDatepicker #d="ngbDatepicker">
+                      <input class="form-control"
+                            #fecInicio="bsDatepicker"
+                            bsDatepicker
+                            placeholder="Fecha Inicio"
+                            formControlName="fecInicio"
+                            [ngClass]="{ 'is-invalid': submitted && f.fecInicio.errors }" 
+                            [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+                      <!--<input class="form-control" placeholder="Fecha Inicio"
+                        name="fecInicio" [ngClass]="{ 'is-invalid': submitted && f.fecInicio.errors }" formControlName="fecInicio" ngbDatepicker #d="ngbDatepicker">-->
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        <button class="btn btn-outline-secondary calendar" (click)="fecInicio.toggle()" [attr.aria-expanded]="fecInicio.isOpen" type="button"><i class="fa fa-calendar"></i></button>
+                        <!--<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>-->
                       </div>
                     </div>
                     <div *ngIf="submitted && f.fecInicio.errors" class="invalid-feedback">
@@ -86,11 +94,19 @@
                   <div class="col-sm-6 mb-3 mb-sm-0">
       							<!--<label for="">Fecha Fin</label>-->
                     <div class="input-group">
-                      <input class="form-control" placeholder="Fecha Fin"
+                      <input class="form-control"
+                            #fecFin="bsDatepicker"
+                            bsDatepicker
+                            placeholder="Fecha Fin"
+                            formControlName="fecFin"
+                            [ngClass]="{ 'is-invalid': submitted && f.fecFin.errors }" 
+                            [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+                      <!--<input class="form-control" placeholder="Fecha Fin"
                         name="fecFin"  formControlName="fecFin" ngbDatepicker #df="ngbDatepicker"
-                        [ngClass]="{ 'is-invalid': submitted && f.fecFin.errors }">
+                        [ngClass]="{ 'is-invalid': submitted && f.fecFin.errors }">-->
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="df.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        <button class="btn btn-outline-secondary calendar" (click)="fecFin.toggle()" [attr.aria-expanded]="fecFin.isOpen" type="button"><i class="fa fa-calendar"></i></button>
+                        <!--<button class="btn btn-outline-secondary calendar" (click)="df.toggle()" type="button"><i class="fa fa-calendar"></i></button>-->
                       </div>
                     </div>
                     <div *ngIf="submitted && f.fecFin.errors" class="invalid-feedback">

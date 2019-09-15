@@ -54,10 +54,18 @@
 				<div class="form-group row">
 					<div class="col-sm-6">
 	                    <div class="input-group">
-							<input readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fecNacimiento.errors }" formControlName="fecNacimiento" placeholder="Fecha Nacimiento"
-								name="fecNacimiento"  ngbDatepicker #d="ngbDatepicker">
+	                    	<input class="form-control"
+                            #fecNacimiento="bsDatepicker"
+                            bsDatepicker
+                            placeholder="Fecha de Nacimiento"
+                            formControlName="fecNacimiento"
+                            [ngClass]="{ 'is-invalid': submitted && f.fecNacimiento.errors }" 
+                            [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+							<!--<input readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fecNacimiento.errors }" formControlName="fecNacimiento" placeholder="Fecha Nacimiento"
+								name="fecNacimiento"  ngbDatepicker #d="ngbDatepicker">-->
 							<div class="input-group-append">
-								<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>
+                        		<button class="btn btn-outline-secondary calendar" (click)="fecNacimiento.toggle()" [attr.aria-expanded]="fecNacimiento.isOpen" type="button"><i class="fa fa-calendar"></i></button>
+								<!--<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fa fa-calendar"></i></button>-->
 							</div>
 
 						<div *ngIf="submitted && f.fecNacimiento.errors" class="invalid-feedback">

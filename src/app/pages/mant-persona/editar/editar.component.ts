@@ -82,6 +82,10 @@ export class EditarPersonaComponent implements OnInit {
 		this.frmPersona.controls['estado'].setValue(this.personaBean.estado); 
 		this.frmPersona.controls['imagen'].setValue(this.personaBean.urlImagen); 
 
+		let fecNacim = new Date(this.personaBean.fecNacimiento);
+		fecNacim.setDate(fecNacim.getDate() + 1)
+		this.frmPersona.controls['fecNacimiento'].setValue(fecNacim); 
+		/*
 		let date = new Date(this.personaBean.fecNacimiento);
 		let dd = date.getUTCDate() + ""; 
 		let mm = date.getUTCMonth() + ""; 
@@ -92,7 +96,7 @@ export class EditarPersonaComponent implements OnInit {
 			year: parseInt(yyyy, 10),
 			month: parseInt(mm, 10),
 			day: parseInt(dd, 10)
-		}); 
+		}); */
 
 	}
 
@@ -157,18 +161,17 @@ export class EditarPersonaComponent implements OnInit {
 	}
 
 	getDateFormat(fecha: any){
-		let dd = fecha.day; 
-		let mm = fecha.month; 
-		let dia = dd + '';
-		let mes = mm + '';
-		let yyyy = fecha.year; 
-		if (dd < 10) { 
-			dia = '0' + dd; 
-		} 
-		if (mm < 10) { 
-			mes = '0' + mm; 
-		} 
-		return dia + '/' + mes + '/' + yyyy; 
+		let d = new Date(fecha),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+		if (month.length < 2) 
+			month = '0' + month;
+		if (day.length < 2) 
+			day = '0' + day;
+
+		return [day, month, year].join('/');
 	}
 
 	open() {
@@ -179,21 +182,6 @@ export class EditarPersonaComponent implements OnInit {
 		modalRef.result.then((result) => {
 			this.activeModal.close();
 		});
-	}
-
-	getDateFormat2(fecha: any){
-		let dd = fecha.day; 
-		let mm = fecha.month; 
-		let dia = dd + '';
-		let mes = mm + '';
-		let yyyy = fecha.year; 
-		if (dd < 10) { 
-			dia = '0' + dd; 
-		} 
-		if (mm < 10) { 
-			mes = '0' + mm; 
-		} 
-		return yyyy + '-' + mes + '-' + dia; 
 	}
 
 	get f() { return this.frmPersona.controls; }

@@ -62,6 +62,7 @@ export class AgregarPersonaComponent implements OnInit {
 	get f() { return this.frmPersona.controls; }
 
 	registrar(){
+		console.log(new Date(this.frmPersona.value.fecNacimiento));
 		this.submitted = true;
 		this.error = '';
 		if (this.frmPersona.invalid) {
@@ -133,19 +134,18 @@ export class AgregarPersonaComponent implements OnInit {
 		});
 	}
 
-  getDateFormat(fecha: any){
-  	let dd = fecha.day; 
-    let mm = fecha.month; 
-    let dia = dd + '';
-    let mes = mm + '';
-    let yyyy = fecha.year; 
-    if (dd < 10) { 
-        dia = '0' + dd; 
-    } 
-    if (mm < 10) { 
-        mes = '0' + mm; 
-    } 
-    return dia + '/' + mes + '/' + yyyy; 
-  }
+	getDateFormat(fecha: any){
+		let d = new Date(fecha),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+		if (month.length < 2) 
+			month = '0' + month;
+		if (day.length < 2) 
+			day = '0' + day;
+
+		return [day, month, year].join('/');
+	}
 
 }

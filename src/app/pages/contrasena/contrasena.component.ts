@@ -37,7 +37,7 @@ export class ContrasenaComponent implements OnInit {
   get f() { return this.frmContrasena.controls; }
 
 
-	validar(){
+	onSubmit(){
 		this.submitted = true;
 		this.error = '';
 		if (this.frmContrasena.invalid) {

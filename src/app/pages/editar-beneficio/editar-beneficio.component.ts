@@ -39,8 +39,6 @@ export class EditarBeneficioComponent implements OnInit {
 	idBeneficio: any;
 	beneficioResponse: any;
 	segmentoBeneficioResponse: any;
-	fechaInicio: any;
-	fechaFin: any;
 	listaSegmento: Segmento[] = [];
 	modalOption: NgbModalOptions = {}; 
 
@@ -146,10 +144,14 @@ export class EditarBeneficioComponent implements OnInit {
 		this.beneficioForm.controls['lstEmpresas'].setValue(this.beneficioResponse.idTipoDocu+'-'+this.beneficioResponse.nroDocu);
 		this.beneficioForm.controls['lstCategorias'].setValue(this.beneficioResponse.idCategoria); 
 		this.beneficioForm.controls['lstTipoBeneficios'].setValue(this.beneficioResponse.idTipoBeneficio); 
-		this.fechaInicio = new Date(this.beneficioResponse.fecIni); 
-		this.fechaFin = new Date(this.beneficioResponse.fecFin);
-		this.beneficioForm.controls['fecInicio'].setValue(this.getDateFormat2(this.beneficioResponse.fecIni)); 
-		this.beneficioForm.controls['fecFin'].setValue(this.getDateFormat2(this.beneficioResponse.fecFin)); 
+		
+		let fechaInicio = new Date(this.beneficioResponse.fecIni);
+		fechaInicio.setDate(fechaInicio.getDate() + 1);
+		let fechaFin = new Date(this.beneficioResponse.fecFin);
+		//fechaFin.setDate(fechaFin.getDate() + 1)
+
+		this.beneficioForm.controls['fecInicio'].setValue(fechaInicio); 
+		this.beneficioForm.controls['fecFin'].setValue(fechaFin); 
 
 
 		this.beneficioForm.controls['descripcion1'].setValue(this.beneficioResponse.descripcion1); 
@@ -253,28 +255,17 @@ export class EditarBeneficioComponent implements OnInit {
 	get f() { return this.beneficioForm.controls; }
 
 	getDateFormat(fecha: any){
-		let dd = fecha.day; 
-		let mm = fecha.month; 
-		let dia = dd + '';
-		let mes = mm + '';
-		let yyyy = fecha.year; 
-		if (dd < 10) { 
-			dia = '0' + dd; 
-		} 
-		if (mm < 10) { 
-			mes = '0' + mm; 
-		} 
-		return dia + '/' + mes + '/' + yyyy; 
-	}
+		let d = new Date(fecha),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
 
-	getDateFormat2(fecha){
-		let date = new Date(fecha);
-		let dd = date.getUTCDate(); 
-		let mm = date.getUTCMonth(); 
-		let dia = dd;
-		let mes = mm;
-		let yyyy = date.getUTCFullYear(); 
-		return {day: dia , month: mes , year: yyyy}; 
+		if (month.length < 2) 
+			month = '0' + month;
+		if (day.length < 2) 
+			day = '0' + day;
+
+		return [day, month, year].join('/');
 	}
 
 	open() {

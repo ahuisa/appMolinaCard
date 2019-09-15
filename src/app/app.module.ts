@@ -34,6 +34,8 @@ import { ModalComponent } from './pages/util/modal/modal.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ContrasenaComponent } from './pages/contrasena/contrasena.component';
 import { ModalImagenComponent } from './pages/util/modal-imagen/modal-imagen.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -76,7 +78,9 @@ import { ModalImagenComponent } from './pages/util/modal-imagen/modal-imagen.com
         ReactiveFormsModule,
         NgbModule,
         NgbDatepickerModule,
-        DataTablesModule
+        DataTablesModule,
+        BsDatepickerModule.forRoot(),
+        BrowserAnimationsModule
     ],
     entryComponents: [
         ModalComponent,

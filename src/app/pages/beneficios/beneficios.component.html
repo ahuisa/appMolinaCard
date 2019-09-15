@@ -56,8 +56,8 @@
                       <td [innerHTML]="item.razonSocialCorto"></td>
                       <td [innerHTML]="item.descripcion1"></td>
                       <td [innerHTML]="item.descCate"></td>
-                      <td>{{ item.fecIni | date:'dd/MM/yyyy' }}</td>
-                      <td>{{ item.fecFin | date:'dd/MM/yyyy' }}</td>
+                      <td>{{ item.fecIni | date:'dd/MM/yyyy':'UTC' }}</td>
+                      <td>{{ item.fecFin | date:'dd/MM/yyyy':'UTC' }}</td>
                       <td [innerHTML]="item.descEstBene"></td>
                       <td>
                         <a (click)="irDetalle(item.idBeneficio)" [routerLink]="['/editar-beneficio', item.idBeneficio ]" class="btn btn-success btn-circle btn-sm">

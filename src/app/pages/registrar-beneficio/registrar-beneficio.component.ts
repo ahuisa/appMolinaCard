@@ -221,18 +221,17 @@ export class RegistrarBeneficioComponent implements OnInit {
 	}
 
 	getDateFormat(fecha: any){
-		let dd = fecha.day; 
-		let mm = fecha.month; 
-		let dia = dd + '';
-		let mes = mm + '';
-		let yyyy = fecha.year; 
-		if (dd < 10) { 
-			dia = '0' + dd; 
-		} 
-		if (mm < 10) { 
-			mes = '0' + mm; 
-		} 
-		return dia + '/' + mes + '/' + yyyy; 
+		let d = new Date(fecha),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+		if (month.length < 2) 
+			month = '0' + month;
+		if (day.length < 2) 
+			day = '0' + day;
+
+		return [day, month, year].join('/');
 	}
 
 }
