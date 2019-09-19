@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./contrasena.component.scss']
 })
 export class ContrasenaComponent implements OnInit {
-	username: string;
+	token: string;
 	frmContrasena: FormGroup;
 	submitted = false;
 	loading = false;
@@ -32,7 +32,7 @@ export class ContrasenaComponent implements OnInit {
 			contrasena: ['', Validators.required],
 			contrasenar: ['', Validators.required]
 		});
-  	this.username = this.route.snapshot.paramMap.get('username');
+  	this.token = this.route.snapshot.paramMap.get('token');
   }
   get f() { return this.frmContrasena.controls; }
 
@@ -51,7 +51,7 @@ export class ContrasenaComponent implements OnInit {
 		this.loading = true;
 
 		let jsonParam = {
-			username: this.username,
+			token: this.token,
 			password: param.contrasena
 		};
 

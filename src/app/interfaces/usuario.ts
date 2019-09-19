@@ -8,5 +8,6 @@ export interface Usuario {
 	idTipoUsuario: string;
 	verificado: boolean;
 	validado: boolean;
+	correoElect: string;
 	lstRol: any[];
 }

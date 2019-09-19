@@ -82,7 +82,7 @@ export class EditarUsuarioComponent implements OnInit {
 		this.frmUsuario.controls['username'].setValue(this.usuarioBean.username); 
 		this.frmUsuario.controls['idTipoUsuario'].setValue(this.usuarioBean.idTipoUsuario); 
 		this.frmUsuario.controls['descripcion'].setValue(this.usuarioBean.descripcion); 
-		this.frmUsuario.controls['correo'].setValue(this.usuarioBean.correo); 
+		this.frmUsuario.controls['correo'].setValue(this.usuarioBean.correoElect); 
 		this.isVecino = this.usuarioBean.idTipoUsuario == '2';
 		this.isDataCargada = true;
 	}

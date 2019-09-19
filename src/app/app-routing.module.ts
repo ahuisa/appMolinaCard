@@ -64,7 +64,7 @@ const routes: Routes = [
       component: BeneficiosEmpresaComponent
     },
     {
-      path : 'olvide-contrasena/:username',
+      path : 'olvide-contrasena/:token',
       component: ContrasenaComponent
     }
 ];

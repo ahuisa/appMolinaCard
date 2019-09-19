@@ -171,6 +171,7 @@ export class AgregarUsuarioComponent implements OnInit {
 			idTipoUsuario: tipoUsuario[0],
 			verificado: false,
 			validado: false,
+			correoElect: params.correo,
 			lstRol: this.lstRoles
 		};
 		

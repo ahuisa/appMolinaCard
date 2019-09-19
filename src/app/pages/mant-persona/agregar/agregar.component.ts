@@ -25,6 +25,7 @@ export class AgregarPersonaComponent implements OnInit {
 	imgURL: any;
 	fecNacimiento: Date;
 	modalOption: NgbModalOptions = {}; 
+	max: number = 0;
 
 	constructor(public activeModal: NgbActiveModal,
 					private formBuilder: FormBuilder,
@@ -47,7 +48,7 @@ export class AgregarPersonaComponent implements OnInit {
 			correoElect: ['', [Validators.required, Validators.email]],
 			telefono: ['', Validators.required],
 			estado: ['', Validators.required],
-			imagen: ['', Validators.required],
+			imagen: [''],
 		});
 
 		this.personaService.iniRegi().subscribe(res => {
@@ -146,6 +147,21 @@ export class AgregarPersonaComponent implements OnInit {
 			day = '0' + day;
 
 		return [day, month, year].join('/');
+	}
+	cambiarTipo(e){
+		let tipo = e.target.value;
+
+		if(tipo == '1' || tipo == '2')
+			this.max = 8;
+		else if(tipo == '3' || tipo == '5')
+			this.max = 12;
+		else if(tipo == '4')
+			this.max = 11;
+		else if(tipo == '6' || tipo == '7')
+			this.max = 15;
+
+		this.frmPersona.controls['nroDocu'].setValue(''); 
+
 	}
 
 }

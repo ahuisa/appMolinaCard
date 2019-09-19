@@ -7,7 +7,7 @@
 			<form [formGroup]="frmPersona">
 				<div class="form-group row">
 					<div class="input-group input-group-sm col-sm-6">
-						<select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
+						<select class="form-control" (change)="cambiarTipo($event)" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
 							<option value="" selected>Tipo Documento</option>
 							<option *ngFor="let item of lstTipoDocumento; let i = index" [value]="item.idTipoDocu">
 								{{item.nomCorto}}
@@ -19,7 +19,7 @@
                 		</div>
 					</div>
 					<div class="input-group input-group-sm col-sm-6">
-						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" formControlName="nroDocu" placeholder="Nro. Documento" />
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" maxlength="{{max}}" formControlName="nroDocu" placeholder="Nro. Documento" />
 
 						<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
                       		<div *ngIf="f.nroDocu.errors.required">Debe ingresar el nro. de documento</div>
@@ -115,7 +115,7 @@
                 		</div>
 					</div>
 					<div class="input-group input-group-sm col-sm-6">
-						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" formControlName="telefono" placeholder="Teléfono" />
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" maxlength="9"  formControlName="telefono" placeholder="Teléfono" />
 
 						<div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
                       		<div *ngIf="f.telefono.errors.required">Debe ingresar el teléfono</div>
