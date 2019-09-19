@@ -89,8 +89,8 @@ export class AgregarUsuarioComponent implements OnInit {
 	}
 
 	cambiarTipoPadre(event){
-		this.frmUsuario.controls['idTipoDocuPadre'].setValue(''); 
 		this.frmUsuario.controls['nroDocuPadre'].setValue(''); 
+		this.frmUsuario.controls['contribuyente'].setValue(''); 
 	}
 
 	validarContribuyente(){

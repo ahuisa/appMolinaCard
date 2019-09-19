@@ -3123,8 +3123,8 @@ var AgregarUsuarioComponent = /** @class */ (function () {
         this.frmUsuario.controls['razonSocial'].setValue('');
     };
     AgregarUsuarioComponent.prototype.cambiarTipoPadre = function (event) {
-        this.frmUsuario.controls['idTipoDocuPadre'].setValue('');
         this.frmUsuario.controls['nroDocuPadre'].setValue('');
+        this.frmUsuario.controls['contribuyente'].setValue('');
     };
     AgregarUsuarioComponent.prototype.validarContribuyente = function () {
         var _this = this;
