@@ -17,7 +17,7 @@
                 </div>
                 <form class="user" [formGroup]="frmContrasena" (ngSubmit)="onSubmit()">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" formControlName="contrasena" placeholder="Contraseña nueva" [ngClass]="{ 'is-invalid': submitted && f.contrasena.errors }">
+                    <input type="password" class="form-control form-control-user" formControlName="contrasena" placeholder="Contraseña nueva" [ngClass]="{ 'is-invalid': submitted && f.contrasena.errors }">
                     <div *ngIf="submitted && f.contrasena.errors" class="invalid-feedback">
                       <div *ngIf="f.contrasena.errors.required">Debe ingresar el usuario</div>
                     </div>

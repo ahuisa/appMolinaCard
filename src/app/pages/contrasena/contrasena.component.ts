@@ -62,7 +62,7 @@ export class ContrasenaComponent implements OnInit {
 				this.open(data.mensaje);
 			},
 			error => {
-				this.error = 'Ocurrió un error al registrar el beneficio, vuelva a intentarlo.';
+				this.error = 'Ocurrió un error al cambiar la contraseña, vuelva a intentarlo.';
 				this.loading = false;
 			});
 

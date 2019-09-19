@@ -26,7 +26,7 @@ export const endpoint_iniAct_usuarios = '/usuarios/iniActu';
 
 export const endpoint_beneficios_empresa = '/beneficios/iniBeneficiosByEmpresa';
 export const endpoint_validar = '/beneficios/canjear';
-export const endpoint_contrasena = '/usuarios/restablecerContrasena'
+export const endpoint_contrasena = '/public/restablecerContrasena'
 
 export const dtOptions = {
 	pagingType: 'full_numbers',
