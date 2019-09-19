@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AutenticacionService } from '../../services/autenticacion.service';
 import { ModalComponent } from '../util/modal/modal.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { first } from 'rxjs/operators';	
 
 @Component({
@@ -21,7 +21,7 @@ export class ContrasenaComponent implements OnInit {
 	modalOption: NgbModalOptions = {}; 
   constructor(private autenticacionService: AutenticacionService,
 							private route: ActivatedRoute,
-							public activeModal: NgbActiveModal,
+							//public activeModal: NgbActiveModal,
 							private formBuilder: FormBuilder,
 							private modalService: NgbModal,
 							private router: Router) { }
@@ -76,7 +76,7 @@ export class ContrasenaComponent implements OnInit {
 		modalRef.result.then((result) => {
 			this.frmContrasena.controls['contrasena'].setValue('');
 			this.frmContrasena.controls['contrasenar'].setValue('');
-			this.activeModal.close('');
+			//this.activeModal.close('');
 		});
 	}
 }

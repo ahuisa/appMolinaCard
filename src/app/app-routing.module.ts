@@ -64,7 +64,7 @@ const routes: Routes = [
       component: BeneficiosEmpresaComponent
     },
     {
-      path : 'olvide-contrasena/:token',
+      path : 'restablecerContrasena/:token',
       component: ContrasenaComponent
     }
 ];

@@ -112,7 +112,7 @@ var routes = [
         component: _pages_beneficios_empresa_empresa_component__WEBPACK_IMPORTED_MODULE_11__["BeneficiosEmpresaComponent"]
     },
     {
-        path: 'olvide-contrasena/:token',
+        path: 'restablecerContrasena/:token',
         component: _pages_contrasena_contrasena_component__WEBPACK_IMPORTED_MODULE_13__["ContrasenaComponent"]
     }
 ];
@@ -990,10 +990,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ContrasenaComponent = /** @class */ (function () {
-    function ContrasenaComponent(autenticacionService, route, activeModal, formBuilder, modalService, router) {
+    function ContrasenaComponent(autenticacionService, route, 
+    //public activeModal: NgbActiveModal,
+    formBuilder, modalService, router) {
         this.autenticacionService = autenticacionService;
         this.route = route;
-        this.activeModal = activeModal;
         this.formBuilder = formBuilder;
         this.modalService = modalService;
         this.router = router;
@@ -1049,7 +1050,7 @@ var ContrasenaComponent = /** @class */ (function () {
         modalRef.result.then(function (result) {
             _this.frmContrasena.controls['contrasena'].setValue('');
             _this.frmContrasena.controls['contrasenar'].setValue('');
-            _this.activeModal.close('');
+            //this.activeModal.close('');
         });
     };
     ContrasenaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1060,7 +1061,6 @@ var ContrasenaComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_autenticacion_service__WEBPACK_IMPORTED_MODULE_3__["AutenticacionService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbActiveModal"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"],
             _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
