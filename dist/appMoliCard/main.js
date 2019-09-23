@@ -3393,7 +3393,9 @@ var EditarUsuarioComponent = /** @class */ (function () {
             lstRol: this.lstRolTemp,
             estado: '1',
             verificado: true,
-            validado: true
+            validado: true,
+            idTipoDocuPadre: this.usuarioBean.idTipoDocuPadre,
+            nroDocuPadre: this.usuarioBean.nroDocuPadre
         };
         this.loading = false;
         this.usuarioService.actualizar(usuario)
@@ -3937,6 +3939,7 @@ var BeneficioService = /** @class */ (function () {
         });
     };
     BeneficioService.prototype.validar = function (idBeneficio, tipo, codigo) {
+        var flagDni = tipo == '0' ? false : true;
         var token = localStorage.getItem('token');
         var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + token);
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
@@ -3944,6 +3947,7 @@ var BeneficioService = /** @class */ (function () {
         params = params.append('idTipoDocu', (tipo == '0') ? '' : tipo);
         params = params.append('nroDocu', (tipo == '0') ? '' : codigo);
         params = params.append('codigoCanje', (tipo == '0') ? codigo : '');
+        params = params.append('canjearXDni', flagDni.toString());
         return this.http.get(_utils_variables__WEBPACK_IMPORTED_MODULE_4__["url_base"] + _utils_variables__WEBPACK_IMPORTED_MODULE_4__["endpoint_validar"], {
             headers: httpHeaders,
             params: params

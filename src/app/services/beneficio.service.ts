@@ -82,6 +82,7 @@ export class BeneficioService {
 	}
 
 	validar(idBeneficio:string, tipo:string, codigo:string):Observable<any>{
+		let flagDni = tipo == '0'?false:true;
 		const token = localStorage.getItem('token');
 		const httpHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + token);
        	let params = new HttpParams();
@@ -89,6 +90,7 @@ export class BeneficioService {
        	params = params.append('idTipoDocu', (tipo == '0')?'':tipo);
        	params = params.append('nroDocu', (tipo == '0')?'':codigo);
        	params = params.append('codigoCanje', (tipo == '0')?codigo:'');
+       	params = params.append('canjearXDni', flagDni.toString());
 
 		return this.http.get(variables.url_base + variables.endpoint_validar,  {
 		        headers: httpHeaders,

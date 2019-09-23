@@ -130,7 +130,9 @@ export class EditarUsuarioComponent implements OnInit {
 			lstRol: this.lstRolTemp,
 			estado: '1',
 			verificado: true,
-			validado: true
+			validado: true,
+			idTipoDocuPadre: this.usuarioBean.idTipoDocuPadre,
+			nroDocuPadre: this.usuarioBean.nroDocuPadre
 		};
 
 		
