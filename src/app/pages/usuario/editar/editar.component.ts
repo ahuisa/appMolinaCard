@@ -48,6 +48,7 @@ export class EditarUsuarioComponent implements OnInit {
 			idTipoUsuario:  [''],
 			descripcion:  [''],
 			correo:  [''],
+			canjearXDni:  [''],
 			lstRol: new FormArray([])
 		});
 
@@ -83,6 +84,7 @@ export class EditarUsuarioComponent implements OnInit {
 		this.frmUsuario.controls['idTipoUsuario'].setValue(this.usuarioBean.idTipoUsuario); 
 		this.frmUsuario.controls['descripcion'].setValue(this.usuarioBean.descripcion); 
 		this.frmUsuario.controls['correo'].setValue(this.usuarioBean.correoElect); 
+		this.frmUsuario.controls['canjearXDni'].setValue(this.usuarioBean.canjearXDni.toString()); 
 		this.isVecino = this.usuarioBean.idTipoUsuario == '2';
 		this.isDataCargada = true;
 	}
@@ -132,7 +134,9 @@ export class EditarUsuarioComponent implements OnInit {
 			verificado: true,
 			validado: true,
 			idTipoDocuPadre: this.usuarioBean.idTipoDocuPadre,
-			nroDocuPadre: this.usuarioBean.nroDocuPadre
+			nroDocuPadre: this.usuarioBean.nroDocuPadre,
+			correoElect: params.correo,
+			canjearXDni: params.canjearXDni
 		};
 
 		

@@ -10,4 +10,5 @@ export interface Usuario {
 	validado: boolean;
 	correoElect: string;
 	lstRol: any[];
+	canjearXDni: string;
 }

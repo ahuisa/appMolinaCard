@@ -43,6 +43,7 @@ export class AgregarUsuarioComponent implements OnInit {
 			password:  ['', Validators.required],
 			idTipoUsuario:  ['', Validators.required],
 			descripcion:  ['', Validators.required],
+			canjearXDni:  ['true'],
 			correo: ['', [Validators.required, Validators.email]],
 			lstRol: new FormArray([])
 		});
@@ -172,7 +173,8 @@ export class AgregarUsuarioComponent implements OnInit {
 			verificado: false,
 			validado: false,
 			correoElect: params.correo,
-			lstRol: this.lstRoles
+			lstRol: this.lstRoles,
+			canjearXDni: params.canjearXDni
 		};
 		
 		this.loading = false;
