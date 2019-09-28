@@ -17,6 +17,7 @@ export class ContrasenaComponent implements OnInit {
 	submitted = false;
 	loading = false;
 	error = '';
+	isSubmit = false;
 
 	modalOption: NgbModalOptions = {}; 
   constructor(private autenticacionService: AutenticacionService,
@@ -74,9 +75,8 @@ export class ContrasenaComponent implements OnInit {
 		const modalRef = this.modalService.open(ModalComponent, this.modalOption);
 		modalRef.componentInstance.mensaje = mensaje;
 		modalRef.result.then((result) => {
-			this.frmContrasena.controls['contrasena'].setValue('');
-			this.frmContrasena.controls['contrasenar'].setValue('');
-			//this.activeModal.close('');
+			this.frmContrasena.reset();
+			this.isSubmit = true;
 		});
 	}
 }

@@ -206,7 +206,12 @@
                         <th>Edad</th>
   	                    <th>Segmento</th>
                         <th *ngFor="let itemM of lstNivelMorosidad; ">
-                          {{itemM.descripcion}}
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{itemM.idNivelMorosidad}}" (change)="seleccionarColumna($event)">
+                            <label class="form-check-label">
+                              {{itemM.descripcion}}
+                            </label>
+                          </div>
                         </th>
   	                  </tr>
   	                </thead>

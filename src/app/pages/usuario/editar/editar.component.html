@@ -13,6 +13,10 @@
 				<div class="form-group row">
 					<div class="input-group input-group-sm col-sm-12">
 						<input type="password" class="form-control" formControlName="password" placeholder="Contraseña" />
+						<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      		<div *ngIf="f.password.errors.required">Debe ingresar su contraseña</div>
+							<div *ngIf="f.password.errors.minlength">Debe ingresar como mínimo 5 caracteres</div>
+                		</div>
 					</div>
 				</div>
 				<div class="form-group row">

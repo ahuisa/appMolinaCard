@@ -251,6 +251,27 @@ export class EditarBeneficioComponent implements OnInit {
 		}
 	}
 
+	seleccionarColumna(evt){
+		let isChecked = evt.target.checked;
+		let value = evt.target.defaultValue;
+		this.listaSegmento.forEach(segmento => {
+			segmento.morosidad.forEach(morosidad => {
+				if(morosidad.idNivelMorosidad == value){
+					morosidad.checked = isChecked;
+					if(isChecked){
+						this.lstGrupo.push(morosidad.value);
+					} else {
+						for( var i = 0; i < this.lstGrupo.length; i++){ 
+							if ( this.lstGrupo[i] === morosidad.value) {
+								this.lstGrupo.splice(i, 1); 
+							}
+						}
+					}
+				}
+			});
+		});
+	}
+
 
 	get f() { return this.beneficioForm.controls; }
 

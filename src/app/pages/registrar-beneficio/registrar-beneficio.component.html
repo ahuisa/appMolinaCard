@@ -197,7 +197,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card-body" *ngIf="!flagEmpresa">
+              <!--<div class="card-body" *ngIf="!flagEmpresa">
               	<div class="card-header py-3">
   	              <h6 class="m-0 font-weight-bold text-primary">Grupo</h6>
   	            </div>
@@ -208,7 +208,12 @@
                         <th>Edad</th>
   	                    <th>Segmento</th>
                         <th *ngFor="let itemM of lstNivelMorosidad; ">
-                          {{itemM.descripcion}}
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{itemM.idNivelMorosidad}}" (change)="seleccionarColumna($event)">
+                            <label class="form-check-label">
+                              {{itemM.descripcion}}
+                            </label>
+                          </div>
                         </th>
   	                  </tr>
   	                </thead>
@@ -217,13 +222,49 @@
                         <td>{{ item.minRango + '-' + item.maxRango}}</td>
                         <td>{{ item.descripcion }}</td>
                         <td *ngFor="let itemM of lstNivelMorosidad; ">
-                            <input (change)="seleccionarMorosidad($event)" name="morosidad" value="{{item.idSegmento}}-{{itemM.idNivelMorosidad}}" type="checkbox" id="" />
+                            <input (change)="seleccionarMorosidad($event)" *ngIf="itemM.isChecked" checked name="morosidad" value="{{item.idSegmento}}-{{itemM.idNivelMorosidad}}" type="checkbox" id="" />
+                            <input (change)="seleccionarMorosidad($event)" *ngIf="!itemM.isChecked" name="morosidad" value="{{item.idSegmento}}-{{itemM.idNivelMorosidad}}" type="checkbox" id="" />
                         </td>
                       </tr>
                     </tbody>
   	              </table>
   	            </div>  
-  	          </div> 
+              </div>--> 
+              
+              <div class="card-body" *ngIf="!flagEmpresa">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Grupo</h6>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>	                    
+                        <th>Edad</th>
+                        <th>Segmento</th>
+                        <th *ngFor="let itemM of lstNivelMorosidad; ">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="{{itemM.idNivelMorosidad}}" (change)="seleccionarColumna($event)">
+                            <label class="form-check-label">
+                              {{itemM.descripcion}}
+                            </label>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listaSegmento">
+                        <td>{{ item.minRango + '-' + item.maxRango}}</td>
+                        <td>{{ item.descripcion }}</td>
+                        <td *ngFor="let itemM of item.morosidad; ">
+                            <input *ngIf="itemM.checked" (change)="seleccionarMorosidad($event)" name="morosidad" checked value="{{itemM.value}}" type="checkbox" id="" />
+                            <input *ngIf="!itemM.checked" (change)="seleccionarMorosidad($event)" name="morosidad" value="{{itemM.value}}" type="checkbox" id="" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+              </div> 
+              
               <div class="card-body" style="padding-bottom: 20px;" *ngIf="!flagEmpresa">
                 <div class="form-group row">
                   <div class="col-sm-2">

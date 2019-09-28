@@ -6,6 +6,8 @@ import { Beneficio } from '../../interfaces/beneficio';
 import { first } from 'rxjs/operators';	
 import { NgbActiveModal, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../util/modal/modal.component';
+import { Segmento } from 'src/app/interfaces/segmento';
+import { Morosidad } from 'src/app/interfaces/morosidad';
 
 @Component({
 	selector: 'app-registrar-beneficio',
@@ -37,6 +39,7 @@ export class RegistrarBeneficioComponent implements OnInit {
 	user: any;
 	flagEmpresa: boolean;
 	modalOption: NgbModalOptions = {}; 
+	listaSegmento: Segmento[] = [];
 
 	constructor(private beneficioService: BeneficioService,
 		private route: ActivatedRoute,
@@ -86,6 +89,12 @@ export class RegistrarBeneficioComponent implements OnInit {
 			this.lstNivelMorosidad = res.lstNivelMorosidad;
 			this.lstEstadoBeneficio = res.lstEstadoBeneficio;
 
+			this.lstNivelMorosidad.forEach(morosidad => {
+				morosidad.isChecked = false;
+			});
+
+			this.crearListaMorosidad();
+
   		if(this.flagEmpresa){
   			this.beneficioForm.controls['lstEmpresas'].setValue(this.user.idTipoDocu+'-'+this.user.nroDocu);
   		}
@@ -94,6 +103,32 @@ export class RegistrarBeneficioComponent implements OnInit {
 				this.router.navigate(['/login']);
 			}
 		});
+	}
+	
+	crearListaMorosidad(){
+		for (var i = 0; i < this.lstSegmentos.length; i++) {
+			let segmento: Segmento = {
+				idSegmento: this.lstSegmentos[i].idSegmento,
+				maxRango: this.lstSegmentos[i].maxRango,
+				minRango: this.lstSegmentos[i].minRango,
+				descripcion: this.lstSegmentos[i].descripcion,
+				morosidad: []
+			};
+			let listaMorosidad : Morosidad[] = [];
+			for (var e = 0; e < this.lstNivelMorosidad.length; e++) {
+				let morosidad: Morosidad = {
+					idNivelMorosidad: this.lstNivelMorosidad[e].idNivelMorosidad,
+					checked: false,
+					value: this.lstSegmentos[i].idSegmento +'-'+this.lstNivelMorosidad[e].idNivelMorosidad
+				};
+				listaMorosidad.push(morosidad);
+
+			};
+			segmento.morosidad = listaMorosidad;
+			this.listaSegmento.push(segmento);
+			
+		};
+
 	}
 
 	seleccionarMorosidad(evt) {
@@ -108,6 +143,27 @@ export class RegistrarBeneficioComponent implements OnInit {
 				}
 			}
 		}
+	}
+
+	seleccionarColumna(evt){
+		let isChecked = evt.target.checked;
+		let value = evt.target.defaultValue;
+		this.listaSegmento.forEach(segmento => {
+			segmento.morosidad.forEach(morosidad => {
+				if(morosidad.idNivelMorosidad == value){
+					morosidad.checked = isChecked;
+					if(isChecked){
+						this.lstGrupo.push(morosidad.value);
+					} else {
+						for( var i = 0; i < this.lstGrupo.length; i++){ 
+							if ( this.lstGrupo[i] === morosidad.value) {
+								this.lstGrupo.splice(i, 1); 
+							}
+						}
+					}
+				}
+			});
+		});
 	}
 
 	onSubmit(){

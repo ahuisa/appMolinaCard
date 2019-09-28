@@ -40,9 +40,9 @@ export class AgregarUsuarioComponent implements OnInit {
 			nroDocuPadre:  [''],
 			contribuyente: [''],
 			username:  ['', Validators.required],
-			password:  ['', Validators.required],
+			password:  ['', [Validators.required, Validators.minLength(5)]],
 			idTipoUsuario:  ['', Validators.required],
-			descripcion:  ['', Validators.required],
+			descripcion:  [''],
 			canjearXDni:  ['true'],
 			correo: ['', [Validators.required, Validators.email]],
 			lstRol: new FormArray([])
