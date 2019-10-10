@@ -131,10 +131,10 @@ export class EditarUsuarioComponent implements OnInit {
 			password: params.password == null || params.password == ''?null:params.password,
 			lstRol: this.lstRolTemp,
 			estado: '1',
-			verificado: true,
-			validado: true,
-			idTipoDocuPadre: this.usuarioBean.idTipoDocuPadre,
-			nroDocuPadre: this.usuarioBean.nroDocuPadre,
+			verificado: this.usuarioBean.verificado,
+			validado: this.usuarioBean.validado,
+			idTipoDocuPadre: this.usuarioBean.idTipoDocuPadre == null?'':this.usuarioBean.idTipoDocuPadre,
+			nroDocuPadre: this.usuarioBean.nroDocuPadre == null?'':this.usuarioBean.nroDocuPadre,
 			correoElect: params.correo,
 			canjearXDni: params.canjearXDni
 		};
