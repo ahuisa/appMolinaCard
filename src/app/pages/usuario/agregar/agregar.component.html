@@ -12,6 +12,7 @@
 
 						<div *ngIf="submitted && f.idTipoDocu.errors" class="invalid-feedback">
                       		<div *ngIf="f.idTipoDocu.errors.required">Debe ingresar el username</div>
+							<div *ngIf="f.idTipoDocu.errors.minlength">Debe ingresar como mínimo 4 caracteres</div>
                 		</div>
 					</div>
 					<!--<div class="input-group input-group-sm col-sm-4">

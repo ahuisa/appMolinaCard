@@ -39,7 +39,7 @@ export class AgregarUsuarioComponent implements OnInit {
 			idTipoDocuPadre:  [''],
 			nroDocuPadre:  [''],
 			contribuyente: [''],
-			username:  ['', Validators.required],
+			username:  ['', [Validators.required, Validators.minLength(5)]],
 			password:  ['', [Validators.required, Validators.minLength(5)]],
 			idTipoUsuario:  ['', Validators.required],
 			descripcion:  [''],

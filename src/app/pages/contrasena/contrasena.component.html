@@ -19,13 +19,15 @@
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" formControlName="contrasena" placeholder="Contraseña nueva" [ngClass]="{ 'is-invalid': submitted && f.contrasena.errors }">
                     <div *ngIf="submitted && f.contrasena.errors" class="invalid-feedback">
-                      <div *ngIf="f.contrasena.errors.required">Debe ingresar el usuario</div>
+                      <div *ngIf="f.contrasena.errors.required">Debe ingresar nueva contraseña</div>
+                      <div *ngIf="f.contrasena.errors.minlength">Debe ingresar como mínimo 5 caracteres</div>
                     </div>
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" formControlName="contrasenar" placeholder="Confirmar contraseña" [ngClass]="{ 'is-invalid': submitted && f.contrasenar.errors }" />
                     <div *ngIf="submitted && f.contrasenar.errors" class="invalid-feedback">
-                      <div *ngIf="f.contrasenar.errors.required">Debe ingresar su Contraseña</div>
+                      <div *ngIf="f.contrasenar.errors.required">Debe ingresar ingresar nuevamente su nueva contraseña</div>
+                      <div *ngIf="f.contrasenar.errors.minlength">Debe ingresar como mínimo 5 caracteres</div>
                     </div>
                   </div>
                   <button [disabled]="loading" class="btn btn-primary btn-user btn-block">Restablecer contraseña</button>

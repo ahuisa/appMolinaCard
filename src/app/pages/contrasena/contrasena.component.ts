@@ -30,8 +30,8 @@ export class ContrasenaComponent implements OnInit {
   ngOnInit() {
 
 		this.frmContrasena = this.formBuilder.group({
-			contrasena: ['', Validators.required],
-			contrasenar: ['', Validators.required]
+			contrasena: ['', [Validators.required, Validators.minLength(6)]],
+			contrasenar: ['', [Validators.required, Validators.minLength(6)]]
 		});
   	this.token = this.route.snapshot.paramMap.get('token');
   }
@@ -46,7 +46,7 @@ export class ContrasenaComponent implements OnInit {
 		}
 		let param = this.frmContrasena.value;
 		if(param.contrasena != param.contrasenar){
-			this.open('Las contraseñas deben ser iguales');
+			this.mensaje('Las contraseñas deben ser iguales');
 			return;
 		}
 		this.loading = true;
@@ -78,5 +78,12 @@ export class ContrasenaComponent implements OnInit {
 			this.frmContrasena.reset();
 			this.isSubmit = true;
 		});
+	}
+
+	mensaje(mensaje: string) {
+		this.modalOption.backdrop = 'static';
+		this.modalOption.keyboard = false;
+		const modalRef = this.modalService.open(ModalComponent, this.modalOption);
+		modalRef.componentInstance.mensaje = mensaje;
 	}
 }
