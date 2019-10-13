@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import * as variables from '../../utils/variables';
+import Responsive from 'datatables.net-responsive';
 
 @Component({
 	selector: 'app-beneficios',
@@ -15,7 +16,7 @@ export class BeneficiosComponent implements OnInit {
 	@ViewChild(DataTableDirective)
 	dtElement: DataTableDirective;
 
-	dtOptions: DataTables.Settings = variables.dtOptions;
+	dtOptions: DataTables.Settings = variables.dtOptionsBenef;
 
 	dtTrigger: Subject<any> = new Subject();
 
@@ -67,7 +68,9 @@ export class BeneficiosComponent implements OnInit {
 		} 
 		return dia + '/' + mes + '/' + yyyy; 
 	}
-	irDetalle(idBeneficio){
+	irDetalle(event: any, idBeneficio){
+    	event.stopPropagation();
+		console.log(idBeneficio);
 		let param = {
 			'idBeneficio' : idBeneficio
 		};

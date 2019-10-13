@@ -43,7 +43,7 @@
                   <div class="card-columns">
                     <ng-container *ngFor="let item of beneficios;">
                       <div class="card" *ngIf="item.estado == '1'">
-                        <img src="{{item.urlImagen}}" class="card-img-top" alt="...">
+                        <img src="{{item.urlImagen}}" class="card-img-top" style="max-height: 210px" alt="...">
                         <div class="card-body">
                           <h5 class="card-title"><span [innerHTML]="item.descripcion1"></span> - <span [innerHTML]="item.razonSocial"></span></h5>
                           <p class="card-text">
@@ -70,7 +70,7 @@
                   <div class="card-columns">
                     <ng-container *ngFor="let item of beneficios;">
                         <div class="card" *ngIf="item.estado == '0'">
-                          <img src="{{item.urlImagen}}" class="card-img-top" alt="...">
+                          <img src="{{item.urlImagen}}" class="card-img-top" style="max-height: 210px" alt="...">
                           <div class="card-body">
                             <h5 class="card-title"><span [innerHTML]="item.descripcion1"></span> - <span [innerHTML]="item.razonSocial"></span></h5>
                           </div>

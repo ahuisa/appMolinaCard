@@ -29,6 +29,7 @@ export class EditarUsuarioComponent implements OnInit {
 	lstRoles: TipoUsuario[] = [];
 	usuarioBean: any;
 	modalOption: NgbModalOptions = {}; 
+	lstRolSel: Array<any> = [];
 
 	constructor(private formBuilder: FormBuilder,
 		public activeModal: NgbActiveModal,
@@ -59,6 +60,7 @@ export class EditarUsuarioComponent implements OnInit {
 			this.lstTipoUsuario= res.lstTipoUsuario;
 			this.usuarioBean = res.usuario;
 			this.addCheckboxes();
+			console.log(this.lstRolSel);
 			this.cargarDatos();
 		}, error => {
 			if(error.status == 401){
@@ -67,24 +69,29 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
 	private addCheckboxes() {
-    this.lstRol.map((o, i) => {
+		this.lstRol.forEach((o, i) => {
 			const control = new FormControl(i === 0); // if first item set to true, else false
 			(this.frmUsuario.controls.lstRol as FormArray).push(control);
-		});
+    	});
+    	for (var i = 0; i < this.lstRolTemp.length; i++) {
+    		let item = this.lstRolTemp[i];
+    		if(item.username != null)
+    			this.lstRolSel.push(item.idRol);
+    	};
 	}
 
 	cargarDatos(){
 		this.frmUsuario.controls['idTipoDocu'].setValue(this.usuarioBean.idTipoDocu); 
 		this.frmUsuario.controls['nroDocu'].setValue(this.usuarioBean.nroDocu); 
-		this.frmUsuario.controls['razonSocial'].setValue(this.usuarioBean.razonSocial); 
+		this.frmUsuario.controls['razonSocial'].setValue(this.usuarioBean.nombreUsu); 
 		this.frmUsuario.controls['idTipoDocuPadre'].setValue(this.usuarioBean.idTipoDocuPadre); 
 		this.frmUsuario.controls['nroDocuPadre'].setValue(this.usuarioBean.nroDocuPadre); 
-		this.frmUsuario.controls['contribuyente'].setValue(this.usuarioBean.contribuyente); 
+		this.frmUsuario.controls['contribuyente'].setValue(this.usuarioBean.nombreUsuContri); 
 		this.frmUsuario.controls['username'].setValue(this.usuarioBean.username); 
 		this.frmUsuario.controls['idTipoUsuario'].setValue(this.usuarioBean.idTipoUsuario); 
 		this.frmUsuario.controls['descripcion'].setValue(this.usuarioBean.descripcion); 
 		this.frmUsuario.controls['correo'].setValue(this.usuarioBean.correoElect); 
-		this.frmUsuario.controls['canjearXDni'].setValue(this.usuarioBean.canjearXDni.toString()); 
+		this.frmUsuario.controls['canjearXDni'].setValue(this.usuarioBean.canjearXDni.toString());
 		this.isVecino = this.usuarioBean.idTipoUsuario == '2';
 		this.isDataCargada = true;
 	}
@@ -97,18 +104,19 @@ export class EditarUsuarioComponent implements OnInit {
 		}
 		this.loading = true;
 		let params = this.frmUsuario.value;
-
+		/*console.log(params.lstRol);
 		const roles = this.frmUsuario.value.lstRol
-			.map((v, i) => v ? this.lstRol[i].idRol : null)
+			.map((v, i) => v ? this.lstRolTemp[i].idRol : null)
 			.filter(v => v !== null);
 
-		this.generarRoles(roles);
-		
+		this.generarRoles(roles);*/
+
+		console.log(this.lstRolSel);
 		for (var i = 0; i < this.lstRolTemp.length; i++) {
 			let item = this.lstRolTemp[i];
 			let flag = false;
-			for (var e = 0; e < roles.length; e++) {
-				if(roles[e] == item.idRol){
+			for (var e = 0; e < this.lstRolSel.length; e++) {
+				if(this.lstRolSel[e] == item.idRol){
 					flag = true;
 				}
 			};
@@ -174,6 +182,24 @@ export class EditarUsuarioComponent implements OnInit {
 			}
 			this.lstRoles.push(item);
 		};
+	}
+	get f() { return this.frmUsuario.controls; }
+
+	seleccionar(evt){
+		let isChecked = evt.target.checked;
+		let value = evt.target.defaultValue;
+		console.log(isChecked);
+		console.log(value);
+		if (isChecked) {
+			this.lstRolSel.push(value);
+		} else {
+			//debugger;
+			for( var i = 0; i < this.lstRolSel.length; i++){ 
+				if ( this.lstRolSel[i].toString() === value) {
+					this.lstRolSel.splice(i, 1); 
+				}
+			}
+		}
 	}
 
 }

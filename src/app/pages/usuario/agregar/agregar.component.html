@@ -21,7 +21,7 @@
 				</div>
 				<div class="form-group row">
 					<div class="input-group input-group-sm col-sm-12">
-						<input type="password" class="form-control" minlength="5" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" placeholder="Contraseña" />
+						<input type="password" class="form-control" minlength="5" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" maxlength="100" formControlName="password" placeholder="Contraseña" />
 
 						<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       		<div *ngIf="f.password.errors.required">Debe ingresar su contraseña</div>
@@ -59,7 +59,7 @@
 				</div>
 				<div class="form-group row">
 					<div class="input-group input-group-sm col-sm-12">
-						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" (focusout)="validarPersona()" formControlName="nroDocu" placeholder="Nro. Documento" />
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" maxlength="{{max}}" (focusout)="validarPersona()" formControlName="nroDocu" placeholder="Nro. Documento" />
 
 						<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
                       		<div *ngIf="f.nroDocu.errors.required">Debe ingresar el número de documento</div>
@@ -71,7 +71,7 @@
 				</div>
 				<div class="form-group row">
 					<div class="input-group input-group-sm col-sm-12">
-						<input type="text" readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" formControlName="razonSocial" placeholder="Razón Social" />
+						<input type="text" readonly class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" maxlength="200" formControlName="razonSocial" placeholder="Razón Social" />
 
 						<div *ngIf="submitted && f.razonSocial.errors" class="invalid-feedback">
                       		<div *ngIf="f.razonSocial.errors.required">Debe validar el tipo de usuario</div>
@@ -135,7 +135,7 @@
 				</div>
 				<div class="form-group row">
 					<div class="input-group input-group-sm col-sm-12">
-						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }" formControlName="descripcion" placeholder="Descripcion" />
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }" formControlName="descripcion" maxlength="250" placeholder="Descripcion" />
 
 						<div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
                       		<div *ngIf="f.descripcion.errors.required">Debe ingresar la descripcion</div>

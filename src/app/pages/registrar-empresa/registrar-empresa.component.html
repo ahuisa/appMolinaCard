@@ -27,13 +27,13 @@
 							<form [formGroup]="frmEmpresa" class="user">
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
-										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" formControlName="razonSocial" id="" placeholder="Razón Social">
+										<input type="text" maxlength="250" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocial.errors }" formControlName="razonSocial" id="" placeholder="Razón Social">
 										<div *ngIf="submitted && f.razonSocial.errors" class="invalid-feedback">
 											<div *ngIf="f.razonSocial.errors.required">Debe la razón social</div>
 										</div>
 									</div>
 									<div class="col-sm-6 mb-3 mb-sm-0">
-										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocialCorto.errors }" formControlName="razonSocialCorto" id="" placeholder="Razón Social Corto">
+										<input type="text" maxlength="250" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.razonSocialCorto.errors }" formControlName="razonSocialCorto" id="" placeholder="Razón Social Corto">
 										<div *ngIf="submitted && f.razonSocialCorto.errors" class="invalid-feedback">
 											<div *ngIf="f.razonSocialCorto.errors.required">Debe ingresar la decripcion corta de la razón social</div>
 										</div>
@@ -79,7 +79,7 @@
 												{{item.nomCorto}}
 											</option>
 										</select>
-										<select  *ngIf="accion == 'n'" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
+										<select  *ngIf="accion == 'n'" (change)="cambiarTipo($event)" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.idTipoDocu.errors }" formControlName="idTipoDocu">
 											<option value="" selected>Tipo de Documento</option>
 											<option *ngFor="let item of lstTipoDocumento; let i = index" [value]="item.idTipoDocu">
 												{{item.nomCorto}}
@@ -90,7 +90,7 @@
 										</div>
 									</div>
 									<div class="col-sm-6">
-										<input  [readOnly]="accion == 'e'" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" formControlName="nroDocu"  id="" placeholder="Nro. de Documento">
+										<input  [readOnly]="accion == 'e'" type="text" maxlength="{{max}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nroDocu.errors }" formControlName="nroDocu"  id="" placeholder="Nro. de Documento">
 										<div *ngIf="submitted && f.nroDocu.errors" class="invalid-feedback">
 											<div *ngIf="f.nroDocu.errors.required">Debe ingresar el nro. de documento</div>
 										</div>
@@ -98,13 +98,13 @@
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6">
-										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" formControlName="telefono"  id="" placeholder="Telefono">
+										<input type="text" maxlength="9" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" formControlName="telefono"  id="" placeholder="Telefono">
 										<div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
 											<div *ngIf="f.telefono.errors.required">Debe ingresar el teléfono</div>
 										</div>
 									</div>
 									<div class="col-sm-6">
-										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contacto.errors }" formControlName="contacto"  id="" placeholder="Contacto">
+										<input type="text" maxlength="100" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contacto.errors }" formControlName="contacto"  id="" placeholder="Contacto">
 										<div *ngIf="submitted && f.contacto.errors" class="invalid-feedback">
 											<div *ngIf="f.contacto.errors.required">Debe ingresar el contacto</div>
 										</div>
@@ -112,7 +112,7 @@
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6">
-										<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" formControlName="correo"  id="" placeholder="Correo">
+										<input type="text" maxlength="100" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" formControlName="correo"  id="" placeholder="Correo">
 										<div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
 											<div *ngIf="f.correo.errors.required">Debe ingresar el correo electrónico</div>
 										</div>

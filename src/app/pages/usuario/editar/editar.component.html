@@ -72,10 +72,10 @@
 				<div class="form-group row">
 					<label class="col-form-label col-sm-12">Roles</label>
 					<div class="col-sm-12">
-						<div formArrayName="lstRol" class="form-check" *ngFor="let item of lstRol; let i = index" >
-							<input class="form-check-input" [checked]="item.username != null" [formControlName]="i" type="checkbox">
-							<label class="form-check-label">{{item.nombre}}</label>
-						</div>
+						<label formArrayName="lstRol" class="form-check" *ngFor="let item of lstRol; let i = index" >
+							<input class="form-check-input" (change)="seleccionar($event)" [checked]="item.username != null" value="{{item.idRol}}" [formControlName]="i" type="checkbox">
+							{{item.nombre}}
+						</label>
 					</div>
 				</div>
 

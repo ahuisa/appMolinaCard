@@ -40,6 +40,7 @@ export class RegistrarEmpresaComponent implements OnInit {
 	//editar
 	empresaBean: any;
 	modalOption: NgbModalOptions = {}; 
+	max: number = 0;
 
 	constructor(private empresaService: EmpresaService,
 							private route: ActivatedRoute,
@@ -247,6 +248,22 @@ export class RegistrarEmpresaComponent implements OnInit {
 		});
 	}
 	
+	
+	cambiarTipo(e){
+		let tipo = e.target.value;
+
+		if(tipo == '1' || tipo == '2')
+			this.max = 8;
+		else if(tipo == '3' || tipo == '5')
+			this.max = 12;
+		else if(tipo == '4')
+			this.max = 11;
+		else if(tipo == '6' || tipo == '7')
+			this.max = 15;
+
+		this.frmEmpresa.controls['nroDocu'].setValue(''); 
+
+	}
 
 	verImagen(){
 		this.modalOption.backdrop = 'static';

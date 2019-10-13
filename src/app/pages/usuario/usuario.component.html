@@ -1,101 +1,117 @@
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
 
-  	<!-- Sidebar -->
-  	<app-menu></app-menu>
-  	<!-- End of Sidebar -->
+		<!-- Sidebar -->
+		<app-menu></app-menu>
+		<!-- End of Sidebar -->
 
-  	<!-- Content Wrapper -->
-  	<div id="content-wrapper" class="d-flex flex-column">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-  		<!-- Main Content -->
-  		<div id="content">
+			<!-- Main Content -->
+			<div id="content">
 
-  			<!-- Topbar -->
-  			<app-cabecera></app-cabecera>
-  			<!-- End of Topbar -->
+				<!-- Topbar -->
+				<app-cabecera></app-cabecera>
+				<!-- End of Topbar -->
 
-  			<!-- Begin Page Content -->
-  			<div class="container-fluid">
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
 
-  				<!-- Page Heading -->
-  				<div class="d-sm-flex align-items-center justify-content-between mb-4">
-  					<h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
-  					<button (click)="abrirAgregar()" class="d-none d-sm-inline-block btn btn-sm btn-primary btn-icon-split shadow-sm">
-  						<span class="icon text-white">
-  							<i class="fa fa-plus"></i>
-  						</span>
-  						<span class="text">Nuevo</span>
-  					</button>
-  				</div>
+					<!-- Page Heading -->
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
+						<button (click)="abrirAgregar()" class="d-none d-sm-inline-block btn btn-sm btn-primary btn-icon-split shadow-sm">
+							<span class="icon text-white">
+								<i class="fa fa-plus"></i>
+							</span>
+							<span class="text">Nuevo</span>
+						</button>
+					</div>
 
-  				<!-- DataTales Example -->
-  				<div class="card shadow mb-4">
-  					<div class="card-header py-3">
-  						<h6 class="m-0 font-weight-bold text-primary">Resultados</h6>
-  					</div>
-  					<div class="card-body">
-  						<div class="table-responsive">
-  							<table class="table table-striped" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  id="dataTable" width="100%" cellspacing="0">
-  								<thead>
-  									<tr>
-  										<th>Tipo Documento</th>
-  										<th>Nro Documento</th>
-                      <th>Nombre</th>
-                      <th>Username</th>
-                      <th>Tipo de Usuario</th>
-  										<th>Acción</th>
-  									</tr>
-  								</thead>
-  								<tfoot>
-  									<tr>
-  										<th>Tipo Documento</th>
-  										<th>Nro Documento</th>
-                      <th>Nombre</th>
-                      <th>Username</th>
-                      <th>Tipo de Usuario</th>
-  										<th>Acción</th>
-  									</tr>
-  								</tfoot>
-  								<tbody>
-  									<tr *ngFor="let item of lstUsuario">
-  										<td>{{item.descTipoDocu}}</td>
-  										<td>{{item.nroDocu}}</td>
-                      <td>{{item.nombreUsu}}</td>
-  										<td>{{item.username}}</td>
-                      <td>{{item.descTipoUsu}}</td>
-  										<td>
-  											<button (click)="cargarUsuario(item.username)" class="btn btn-success btn-circle btn-sm">
-  												<i class="fa fa-pencil"></i>
-  											</button>
-  										</td>
-  									</tr>
-  								</tbody>
-  							</table>
-  						</div>
-  					</div>
-  				</div>
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Resultados</h6>
+						</div>
+						<div class="card-body">
+							<!--<div class="table-responsive">-->
+								<table class="table table-striped" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>Nombre</th>
+											<th>Tipo Documento</th>
+											<th>Nro Documento</th>
+											<th>Username</th>
+											<th>Tipo de Usuario</th>
+											<th>Acción</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>Nombre</th>
+											<th>Tipo Documento</th>
+											<th>Nro Documento</th>
+											<th>Username</th>
+											<th>Tipo de Usuario</th>
+											<th>Acción</th>
+										</tr>
+									</tfoot>
+									<tbody>
+										<tr *ngFor="let item of lstUsuario">
+											<td>{{item.nombreUsu}}</td>
+											<td>{{item.descTipoDocu}}</td>
+											<td>{{item.nroDocu}}</td>
+											<td>{{item.username}}</td>
+											<td>{{item.descTipoUsu}}</td>
+											<td>
+												<button (click)="cargarUsuario(item.username)" placement="top" ngbTooltip="Editar usuario" class="btn btn-success btn-circle btn-sm">
+													<i class="fa fa-pencil"></i>
+												</button>&nbsp;
+												<button *ngIf="item.estado == '0'" placement="top" ngbTooltip="Activar usuario" (click)="abrirConfirmar(content, '1', item.username)" class="btn btn-primary btn-circle btn-sm">
+													<i class="fa fa-check"></i>
+												</button>
+												<button *ngIf="item.estado == '1'" placement="top" ngbTooltip="Desactivar usuario" (click)="abrirConfirmar(content, '0', item.username)" class="btn btn-danger btn-circle btn-sm">
+													<i class="fa fa-ban"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							<!--</div>-->
+						</div>
+					</div>
 
-  			</div>
-  			<!-- /.container-fluid -->
+				</div>
+				<!-- /.container-fluid -->
 
-  		</div>
-  		<!-- End of Main Content -->
+			</div>
+			<!-- End of Main Content -->
 
-  		<!-- Footer -->
-  		<app-footer></app-footer>
-  		<!-- End of Footer -->
+			<!-- Footer -->
+			<app-footer></app-footer>
+			<!-- End of Footer -->
 
-  	</div>
-  	<!-- End of Content Wrapper -->
+		</div>
+		<!-- End of Content Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+	</div>
+	<!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-  	<i class="fa fa-angle-up"></i>
-  </a>
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fa fa-angle-up"></i>
+	</a>
 
-  <!-- Logout Modal-->
-  <app-msesion></app-msesion>
+	<ng-template #content let-c="close" let-d="dismiss">
+		<div class="modal-body">
+			<p [innerHTML]="mensajeConfirmacion"></p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cerrar</button>
+			<button type="button" class="btn btn-primary" (click)="confirmar(); c('Save click');">Confirmar</button>
+		</div>
+	</ng-template>
+	
+	<!-- Logout Modal-->
+	<app-msesion></app-msesion>

@@ -9,6 +9,7 @@ import { first } from 'rxjs/operators';
 import { NgbActiveModal, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../util/modal/modal.component';
 import { ModalImagenComponent } from '../util/modal-imagen/modal-imagen.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-editar-beneficio',
@@ -73,6 +74,7 @@ export class EditarBeneficioComponent implements OnInit {
 		});
 
 		let data = localStorage.getItem('param');
+		console.log(data);
 		if(data == ''){
 			this.router.navigate(['/beneficios']);
 		} else {
@@ -145,11 +147,17 @@ export class EditarBeneficioComponent implements OnInit {
 		this.beneficioForm.controls['lstCategorias'].setValue(this.beneficioResponse.idCategoria); 
 		this.beneficioForm.controls['lstTipoBeneficios'].setValue(this.beneficioResponse.idTipoBeneficio); 
 		
-		let fechaInicio = new Date(this.beneficioResponse.fecIni);
-		fechaInicio.setDate(fechaInicio.getDate() + 1);
-		let fechaFin = new Date(this.beneficioResponse.fecFin);
-		//fechaFin.setDate(fechaFin.getDate() + 1)
 
+		let fechaInicio = new Date(this.beneficioResponse.fecIni);
+		fechaInicio.setDate(fechaInicio.getDate());
+		let fechaFin = new Date(this.beneficioResponse.fecFin);
+		//2019-10-30T04:59:59.000+0000
+		//let anioFin = this.beneficioResponse.fecFin.substring(0, 4);
+		//let mesFin = this.beneficioResponse.fecFin.substring(5, 7);
+		//let diaFin = this.beneficioResponse.fecFin.substring(8, 10);
+		//let fechaFin = new Date(Date.UTC(parseInt(anioFin), parseInt(mesFin), parseInt(diaFin), 0, 0, 0));
+		//fechaFin.setDate(fechaFin.getDate())
+		console.log(fechaFin);
 		this.beneficioForm.controls['fecInicio'].setValue(fechaInicio); 
 		this.beneficioForm.controls['fecFin'].setValue(fechaFin); 
 
@@ -256,13 +264,20 @@ export class EditarBeneficioComponent implements OnInit {
 		let value = evt.target.defaultValue;
 		this.listaSegmento.forEach(segmento => {
 			segmento.morosidad.forEach(morosidad => {
-				if(morosidad.idNivelMorosidad == value){
+				if(morosidad.idNivelMorosidad.toString() == value){
 					morosidad.checked = isChecked;
 					if(isChecked){
-						this.lstGrupo.push(morosidad.value);
+						let check = false;
+						for( var i = 0; i < this.lstGrupo.length; i++){ 
+							if ( this.lstGrupo[i].toString() === morosidad.value) {
+								check = true;
+							}
+						}
+						if(!check)
+							this.lstGrupo.push(morosidad.value);
 					} else {
 						for( var i = 0; i < this.lstGrupo.length; i++){ 
-							if ( this.lstGrupo[i] === morosidad.value) {
+							if ( this.lstGrupo[i].toString() === morosidad.value) {
 								this.lstGrupo.splice(i, 1); 
 							}
 						}
@@ -270,6 +285,7 @@ export class EditarBeneficioComponent implements OnInit {
 				}
 			});
 		});
+		console.log(this.lstGrupo);
 	}
 
 

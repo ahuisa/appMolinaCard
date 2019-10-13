@@ -35,7 +35,7 @@
               <h6 class="m-0 font-weight-bold text-primary">Resultados</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+              <!--<div class="table-responsive">-->
                 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -59,14 +59,14 @@
                       <td>{{ item.fecRegis | date:'dd/MM/yyyy' }}</td>
                       <td >{{ item.estado == '1' ? 'Activo':'Desactivo'}}</td>
                       <td>
-                        <button href="#" (click)="irDetalle(item.idTipoDocu, item.nroDocu)" class="btn btn-success btn-circle btn-sm">
+                        <button href="#" placement="top" ngbTooltip="Editar empresa" (click)="irDetalle(item.idTipoDocu, item.nroDocu)" class="btn btn-success btn-circle btn-sm">
                           <i class="fa fa-pencil"></i>
                         </button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              <!--</div>-->
             </div>
           </div>
 

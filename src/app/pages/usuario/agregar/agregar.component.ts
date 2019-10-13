@@ -25,6 +25,7 @@ export class AgregarUsuarioComponent implements OnInit {
 	isVecino: boolean= false;
 	lstRoles: TipoUsuario[] = [];
 	modalOption: NgbModalOptions = {}; 
+	max: number = 0;
 
 	constructor(private formBuilder: FormBuilder,
 		public activeModal: NgbActiveModal,
@@ -183,6 +184,7 @@ export class AgregarUsuarioComponent implements OnInit {
 			.pipe(first())
 			.subscribe(
 			data => {
+				this.activeModal.close();
 				this.open();
 			},
 			error => {
@@ -199,6 +201,22 @@ export class AgregarUsuarioComponent implements OnInit {
 		modalRef.result.then((result) => {
 			this.activeModal.close();
 		});
+	}
+
+	cambiarTipoDoc(e){
+		let tipo = e.target.value;
+
+		if(tipo == '1' || tipo == '2')
+			this.max = 8;
+		else if(tipo == '3' || tipo == '5')
+			this.max = 12;
+		else if(tipo == '4')
+			this.max = 11;
+		else if(tipo == '6' || tipo == '7')
+			this.max = 15;
+
+		this.frmUsuario.controls['nroDocu'].setValue(''); 
+
 	}
 
 	get f() { return this.frmUsuario.controls; }
