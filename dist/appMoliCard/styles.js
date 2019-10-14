@@ -73,7 +73,7 @@ module.exports = [[module.i, "/* .bs-datepicker */\n.bs-datepicker {\n  display:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tb2phdmUvRG9jdW1lbnRzL0Vkc29uL0Z1ZW50ZXMvcHJveWVjdG9zL2FwcE1vbGluYUNhcmQvc3JjL3N0eWxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUFBIiwiZmlsZSI6InNyYy9zdHlsZXMuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbiJdfQ== */", '', '']]
+module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tb2phdmUvRG9jdW1lbnRzL3JlcXVlcmltaWVudG9zL3Byb3llY3Rvcy9hcHBNb2xpbmFDYXJkL3NyYy9zdHlsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSw4RUFBQSIsImZpbGUiOiJzcmMvc3R5bGVzLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXG4iXX0= */", '', '']]
 
 /***/ }),
 
@@ -844,14 +844,14 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/node_modules/ngx-bootstrap/datepicker/bs-datepicker.css */"./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css");
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/node_modules/font-awesome/css/font-awesome.min.css */"./node_modules/font-awesome/css/font-awesome.min.css");
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/node_modules/datatables.net-dt/css/jquery.dataTables.css */"./node_modules/datatables.net-dt/css/jquery.dataTables.css");
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css */"./node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css");
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css */"./node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css");
-__webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/src/styles.scss */"./src/styles.scss");
-module.exports = __webpack_require__(/*! /Users/mojave/Documents/Edson/Fuentes/proyectos/appMolinaCard/src/assets/css/sb-admin-2.css */"./src/assets/css/sb-admin-2.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/node_modules/ngx-bootstrap/datepicker/bs-datepicker.css */"./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/node_modules/font-awesome/css/font-awesome.min.css */"./node_modules/font-awesome/css/font-awesome.min.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/node_modules/datatables.net-dt/css/jquery.dataTables.css */"./node_modules/datatables.net-dt/css/jquery.dataTables.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css */"./node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css */"./node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css");
+__webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/src/styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/src/assets/css/sb-admin-2.css */"./src/assets/css/sb-admin-2.css");
 
 
 /***/ })
