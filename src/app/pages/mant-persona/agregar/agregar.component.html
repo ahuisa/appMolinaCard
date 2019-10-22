@@ -44,7 +44,7 @@
                 		</div>
 					</div>
 					<div class="input-group input-group-sm col-sm-6">
-						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apeMater.errors }" fmaxlength="100" ormControlName="apeMater" placeholder="Apellido Materno" />
+						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apeMater.errors }" maxlength="100" formControlName="apeMater" placeholder="Apellido Materno" />
 
 						<div *ngIf="submitted && f.apeMater.errors" class="invalid-feedback">
                       		<div *ngIf="f.apeMater.errors.required">Debe ingresar el apellido materno</div>

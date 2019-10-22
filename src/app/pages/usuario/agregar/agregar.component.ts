@@ -205,7 +205,7 @@ export class AgregarUsuarioComponent implements OnInit {
 
 	cambiarTipoDoc(e){
 		let tipo = e.target.value;
-
+		tipo = tipo.substring(0,1);
 		if(tipo == '1' || tipo == '2')
 			this.max = 8;
 		else if(tipo == '3' || tipo == '5')
