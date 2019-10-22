@@ -10,9 +10,9 @@
 					<div class="input-group input-group-sm col-sm-12">
 						<input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" formControlName="username" placeholder="Username" (focusout)="validarUsuario()" />
 
-						<div *ngIf="submitted && f.idTipoDocu.errors" class="invalid-feedback">
-                      		<div *ngIf="f.idTipoDocu.errors.required">Debe ingresar el username</div>
-							<div *ngIf="f.idTipoDocu.errors.minlength">Debe ingresar como mínimo 4 caracteres</div>
+						<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      		<div *ngIf="f.username.errors.required">Debe ingresar el username</div>
+							<div *ngIf="f.username.errors.minlength">Debe ingresar como mínimo 4 caracteres</div>
                 		</div>
 					</div>
 					<!--<div class="input-group input-group-sm col-sm-4">

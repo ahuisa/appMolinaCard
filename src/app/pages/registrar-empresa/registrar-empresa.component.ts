@@ -54,6 +54,8 @@ export class RegistrarEmpresaComponent implements OnInit {
 
 		this.accion = this.route.snapshot.paramMap.get('accion');
 
+
+
 		this.frmEmpresa = this.formBuilder.group({
 			razonSocial: ['', Validators.required],
 			razonSocialCorto: ['', Validators.required],
@@ -65,8 +67,9 @@ export class RegistrarEmpresaComponent implements OnInit {
 			estado: ['', Validators.required],
 			correo: ['', [Validators.required, Validators.email]]
 		});
-
 		if(this.accion == 'n'){
+
+
 			this.empresaService.iniRegi().subscribe(res => {
 				this.lstTipoDocumento = res.lstTipoDocumento;
 			}, error => {
@@ -77,9 +80,11 @@ export class RegistrarEmpresaComponent implements OnInit {
 		} else {/*
 			this.idTipoDocu = this.route.snapshot.paramMap.get('tip');
 			this.nroDocu = this.route.snapshot.paramMap.get('doc');*/
+
+			this.max = 255;
+
 			let data = localStorage.getItem('param');
 			if(data == ''){
-				debugger;
 				this.router.navigate(['/empresas']);
 			} else {
 				let data2 = JSON.parse(localStorage.getItem('param'));
@@ -173,6 +178,7 @@ export class RegistrarEmpresaComponent implements OnInit {
 	registrarEmpresa(){
 		this.submitted = true;
 		this.error = '';
+		console.log(this.frmEmpresa);
 		if (this.frmEmpresa.invalid) {
 			return;
 		}
@@ -205,6 +211,7 @@ export class RegistrarEmpresaComponent implements OnInit {
 			});
 		} else {
 			empresa.idTipoDocu = this.empresaBean.idTipoDocu;
+			empresa.nroDocu = this.empresaBean.nroDocu;
 			this.empresaService.actualizar(empresa)
 			.pipe(first())
 			.subscribe(

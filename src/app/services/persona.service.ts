@@ -66,4 +66,21 @@ export class PersonaService {
 		));
 	}
 
+	
+
+	activarDesactivar(params: any){
+		const token = localStorage.getItem('token');
+		return this.http.put<HttpResponse<Object>>(	
+			variables.url_base + variables.endpoint_desActivarPersona, 
+			params ,
+			{	headers: new HttpHeaders()
+        		.set('Content-Type', 'application/json')
+        		.set('Authorization', 'Bearer ' + token), 
+        		observe: 'response'
+        	}) .pipe(map(res => {
+				return res;
+			}
+		));
+	}
+
 }
