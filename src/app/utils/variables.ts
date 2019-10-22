@@ -32,12 +32,16 @@ export const endpoint_validar = '/beneficios/canjear';
 export const endpoint_contrasena = '/public/restablecerContrasena';
 
 
-export const endpoint_desActivarPersona = '/usuarios/desActivarPersona';
-export const endpoint_desActivarEmpresa = '/usuarios/desActivarEmpresa';
+export const endpoint_desActivarPersona = '/personas/desActivarPersona';
+export const endpoint_desActivarEmpresa = '/empresas/desActivarEmpresa';
 
 
 export const mensajeActivar = '¿Desea activar el usuario seleccionado?';
 export const mensajeDesactivar = '¿Desea desactivar el usuario seleccionado?';
+export const mensajeActivarPersona = '¿Desea activar la persona seleccionada?';
+export const mensajeDesactivarPersona = '¿Desea desactivar la persona seleccionada?';
+export const mensajeActivarEmpresa = '¿Desea activar la empresa seleccionada?';
+export const mensajeDesactivarEmpresa = '¿Desea desactivar la empresa seleccionada?';
 
 export const dtOptions = {
 	pagingType: 'full_numbers',

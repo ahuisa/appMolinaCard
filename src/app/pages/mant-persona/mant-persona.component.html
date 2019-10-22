@@ -57,6 +57,12 @@
                       <td>
                         <button placement="top" ngbTooltip="Editar persona" (click)="cargarPersona(item.idTipoDocu, item.nroDocu)" class="btn btn-success btn-circle btn-sm">
                           <i class="fa fa-pencil"></i>
+                        </button>&nbsp;
+                        <button *ngIf="item.estado == '0'" placement="top" ngbTooltip="Activar usuario" (click)="abrirConfirmar(content, '1', item.idTipoDocu, item.nroDocu)" class="btn btn-primary btn-circle btn-sm">
+                          <i class="fa fa-check"></i>
+                        </button>
+                        <button *ngIf="item.estado == '1'" placement="top" ngbTooltip="Desactivar usuario" (click)="abrirConfirmar(content, '0', item.idTipoDocu, item.nroDocu)" class="btn btn-danger btn-circle btn-sm">
+                          <i class="fa fa-ban"></i>
                         </button>
                       </td>
                     </tr>
@@ -86,6 +92,16 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fa fa-angle-up"></i>
   </a>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-body">
+      <p [innerHTML]="mensajeConfirmacion"></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cerrar</button>
+      <button type="button" class="btn btn-primary" (click)="confirmar(); c('Save click');">Confirmar</button>
+    </div>
+  </ng-template>
 
   <!-- Logout Modal-->
   <app-msesion></app-msesion>

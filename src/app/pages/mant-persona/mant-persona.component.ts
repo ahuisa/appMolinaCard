@@ -25,6 +25,11 @@ export class MantPersonaComponent implements OnInit {
 	lstPersona: Persona[];
   modalOption: NgbModalOptions = {}; 
 
+  estadoPersona: string;
+  idTipoDocuPersona: string;
+  nroDocuPersona: string;
+  mensajeConfirmacion: string;
+
   constructor(private modalService: NgbModal,
     private personaService: PersonaService,
     private route: ActivatedRoute,
@@ -76,6 +81,35 @@ export class MantPersonaComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
+  }
+
+  abrirConfirmar(content, estado: string, idTipoDocu: string, nroDocu: string){
+    if(estado == '1'){
+      this.mensajeConfirmacion = variables.mensajeActivarPersona;
+    } else {
+      this.mensajeConfirmacion = variables.mensajeDesactivarPersona;
+    }
+    this.estadoPersona = estado;
+    this.idTipoDocuPersona = idTipoDocu;
+    this.nroDocuPersona = nroDocu;
+    this.modalService.open(content);
+  }
+
+  confirmar(){
+
+    let persona = {
+      'idTipoDocu' : this.idTipoDocuPersona,
+      'nroDocu' : this.nroDocuPersona,
+      'estado' : this.estadoPersona
+    }
+
+    this.personaService.activarDesactivar(persona).subscribe(res => {
+      this.listar();
+    }, error => {
+      if(error.status == 401){
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   rerender(): void {
