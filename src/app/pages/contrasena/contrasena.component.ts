@@ -30,8 +30,8 @@ export class ContrasenaComponent implements OnInit {
   ngOnInit() {
 
 		this.frmContrasena = this.formBuilder.group({
-			contrasena: ['', [Validators.required, Validators.minLength(6)]],
-			contrasenar: ['', [Validators.required, Validators.minLength(6)]]
+			contrasena: ['', [Validators.required, Validators.minLength(5)]],
+			contrasenar: ['', [Validators.required, Validators.minLength(5)]]
 		});
   	this.token = this.route.snapshot.paramMap.get('token');
   }
@@ -60,7 +60,7 @@ export class ContrasenaComponent implements OnInit {
 		.pipe(first())
 		.subscribe(
 			(data:any) => {
-				this.open(data.mensaje);
+				this.open('Se cambio la clave satisfactoriamente.');
 			},
 			error => {
 				this.error = 'Ocurrió un error al cambiar la contraseña, vuelva a intentarlo.';

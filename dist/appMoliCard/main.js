@@ -950,7 +950,7 @@ var BeneficiosEmpresaComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <!-- Outer Row -->\n  <div class=\"row justify-content-center\">\n\n    <div class=\"col-xl-10 col-lg-12 col-md-9\">\n\n      <div class=\"card o-hidden border-0 shadow-lg my-5\">\n        <div class=\"card-body p-0\">\n          <!-- Nested Row within Card Body -->\n          <div class=\"row\">\n            <div class=\"col-lg-6 d-none d-lg-block bg-login-image\"></div>\n            <div class=\"col-lg-6\">\n              <div class=\"p-5\">\n                <div class=\"text-center\">\n                  <h1 class=\"h4 text-gray-900 mb-4\"><img class=\"img-fluid\" src=\"./assets/img/imgLogo.png\"></h1>\n                </div>\n                <form *ngIf=\"!isSubmit\" class=\"user\" [formGroup]=\"frmContrasena\" (ngSubmit)=\"onSubmit()\">\n                  <div class=\"form-group\">\n                    <input type=\"password\" class=\"form-control form-control-user\" formControlName=\"contrasena\" placeholder=\"Contraseña nueva\" [ngClass]=\"{ 'is-invalid': submitted && f.contrasena.errors }\">\n                    <div *ngIf=\"submitted && f.contrasena.errors\" class=\"invalid-feedback\">\n                      <div *ngIf=\"f.contrasena.errors.required\">Debe ingresar nueva contraseña</div>\n                      <div *ngIf=\"f.contrasena.errors.minlength\">Debe ingresar como mínimo 5 caracteres</div>\n                    </div>\n                  </div>\n                  <div class=\"form-group\">\n                    <input type=\"password\" class=\"form-control form-control-user\" formControlName=\"contrasenar\" placeholder=\"Confirmar contraseña\" [ngClass]=\"{ 'is-invalid': submitted && f.contrasenar.errors }\" />\n                    <div *ngIf=\"submitted && f.contrasenar.errors\" class=\"invalid-feedback\">\n                      <div *ngIf=\"f.contrasenar.errors.required\">Debe ingresar ingresar nuevamente su nueva contraseña</div>\n                      <div *ngIf=\"f.contrasenar.errors.minlength\">Debe ingresar como mínimo 5 caracteres</div>\n                    </div>\n                  </div>\n                  <button [disabled]=\"loading\" class=\"btn btn-primary btn-user btn-block\">Restablecer contraseña</button>\n                  <br />\n                  <div *ngIf=\"error\" class=\"alert alert-danger alert-dismissible fade show\">\n                    {{error}}\n                  </div>\n                </form>\n                <div *ngIf=\"isSubmit\">\n                    <p>¡Felicidades! Ya ha completado el proceso.</p>\n                </div>\n                <hr>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n\n</div>"
+module.exports = "<div class=\"container\">\n\n  <!-- Outer Row -->\n  <div class=\"row justify-content-center\">\n\n    <div class=\"col-xl-10 col-lg-12 col-md-9\">\n\n      <div class=\"card o-hidden border-0 shadow-lg my-5\">\n        <div class=\"card-body p-0\">\n          <!-- Nested Row within Card Body -->\n          <div class=\"row\">\n            <div class=\"col-lg-6 d-none d-lg-block bg-login-image\"></div>\n            <div class=\"col-lg-6\">\n              <div class=\"p-5\">\n                <div class=\"text-center\">\n                  <h1 class=\"h4 text-gray-900 mb-4\"><img class=\"img-fluid\" src=\"./assets/img/imgLogo.png\"></h1>\n                </div>\n                <form *ngIf=\"!isSubmit\" class=\"user\" [formGroup]=\"frmContrasena\" (ngSubmit)=\"onSubmit()\">\n                  <div class=\"form-group\">\n                    <input type=\"password\" class=\"form-control form-control-user\" formControlName=\"contrasena\" placeholder=\"Contraseña nueva\" [ngClass]=\"{ 'is-invalid': submitted && f.contrasena.errors }\">\n                    <div *ngIf=\"submitted && f.contrasena.errors\" class=\"invalid-feedback\">\n                      <div *ngIf=\"f.contrasena.errors.required\">Debe ingresar nueva contraseña</div>\n                      <div *ngIf=\"f.contrasena.errors.minlength\">Debe ingresar como mínimo 5 d&iacute;gitos</div>\n                    </div>\n                  </div>\n                  <div class=\"form-group\">\n                    <input type=\"password\" class=\"form-control form-control-user\" formControlName=\"contrasenar\" placeholder=\"Confirmar contraseña\" [ngClass]=\"{ 'is-invalid': submitted && f.contrasenar.errors }\" />\n                    <div *ngIf=\"submitted && f.contrasenar.errors\" class=\"invalid-feedback\">\n                      <div *ngIf=\"f.contrasenar.errors.required\">Debe ingresar ingresar nuevamente su nueva contraseña</div>\n                      <div *ngIf=\"f.contrasenar.errors.minlength\">Debe ingresar como mínimo 5 d&iacute;gitos</div>\n                    </div>\n                  </div>\n                  <button [disabled]=\"loading\" class=\"btn btn-primary btn-user btn-block\">Restablecer contraseña</button>\n                  <br />\n                  <div *ngIf=\"error\" class=\"alert alert-danger alert-dismissible fade show\">\n                    {{error}}\n                  </div>\n                </form>\n                <div *ngIf=\"isSubmit\">\n                    <p>¡Felicidades! Ya ha completado el proceso.</p>\n                </div>\n                <hr>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -1008,8 +1008,8 @@ var ContrasenaComponent = /** @class */ (function () {
     }
     ContrasenaComponent.prototype.ngOnInit = function () {
         this.frmContrasena = this.formBuilder.group({
-            contrasena: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(6)]],
-            contrasenar: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(6)]]
+            contrasena: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(5)]],
+            contrasenar: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(5)]]
         });
         this.token = this.route.snapshot.paramMap.get('token');
     };
@@ -1038,7 +1038,7 @@ var ContrasenaComponent = /** @class */ (function () {
         this.autenticacionService.cambiarContrasena(jsonParam)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["first"])())
             .subscribe(function (data) {
-            _this.open(data.mensaje);
+            _this.open('Se cambio la clave satisfactoriamente.');
         }, function (error) {
             _this.error = 'Ocurrió un error al cambiar la contraseña, vuelva a intentarlo.';
             _this.loading = false;
@@ -4739,7 +4739,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Mariandrea/Documents/proyAg/appMolinaCard/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/mojave/Documents/requerimientos/proyectos/appMolinaCard/src/main.ts */"./src/main.ts");
 
 
 /***/ })
